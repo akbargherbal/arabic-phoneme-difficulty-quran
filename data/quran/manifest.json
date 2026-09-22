@@ -1,0 +1,62 @@
+{
+  "source": "Tanzil Project",
+  "url": "https://tanzil.net",
+  "license": "Creative Commons Attribution 3.0",
+  "downloaded_at": "2026-09-22T17:23:24.746652+00:00",
+  "scripts": {
+    "uthmani": {
+      "script": "uthmani",
+      "description": "Uthmani text as in the Madina Mushaf (primary source)",
+      "raw": "data/raw/tanzil/uthmani.txt",
+      "json": "data/quran/uthmani.json",
+      "csv": "data/quran/uthmani.csv",
+      "verse_count": 6236,
+      "basmala_stripped": 112
+    },
+    "uthmani-min": {
+      "script": "uthmani-min",
+      "description": "Uthmani text with a minimal number of diacritics/symbols",
+      "raw": "data/raw/tanzil/uthmani-min.txt",
+      "json": "data/quran/uthmani-min.json",
+      "csv": "data/quran/uthmani-min.csv",
+      "verse_count": 6236,
+      "basmala_stripped": 112
+    },
+    "simple": {
+      "script": "simple",
+      "description": "Simple (Imla'ei) text, fully diacritized",
+      "raw": "data/raw/tanzil/simple.txt",
+      "json": "data/quran/simple.json",
+      "csv": "data/quran/simple.csv",
+      "verse_count": 6236,
+      "basmala_stripped": 112
+    },
+    "simple-plain": {
+      "script": "simple-plain",
+      "description": "Simple text without ikhfa/idgham demonstration",
+      "raw": "data/raw/tanzil/simple-plain.txt",
+      "json": "data/quran/simple-plain.json",
+      "csv": "data/quran/simple-plain.csv",
+      "verse_count": 6236,
+      "basmala_stripped": 112
+    },
+    "simple-min": {
+      "script": "simple-min",
+      "description": "Simple text with minimal diacritics",
+      "raw": "data/raw/tanzil/simple-min.txt",
+      "json": "data/quran/simple-min.json",
+      "csv": "data/quran/simple-min.csv",
+      "verse_count": 6236,
+      "basmala_stripped": 112
+    },
+    "simple-clean": {
+      "script": "simple-clean",
+      "description": "Simple text without any diacritics (skeleton only)",
+      "raw": "data/raw/tanzil/simple-clean.txt",
+      "json": "data/quran/simple-clean.json",
+      "csv": "data/quran/simple-clean.csv",
+      "verse_count": 6236,
+      "basmala_stripped": 112
+    }
+  }
+}

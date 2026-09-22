@@ -1,0 +1,200 @@
+"""Arabic script helpers: diacritics, normalization, tokens and words.
+
+The Tanzil Uthmani text uses a number of Unicode codepoints that are not part of
+the 28 canonical Arabic consonants (hamza carriers, dagger alef, small waw/yeh,
+Quranic pause/annotation marks, tatweel ...).  Everything downstream of this
+module works on the *base consonantal skeleton* produced by :func:`base_letters`,
+so the scoring logic never has to know about the raw codepoints.
+"""
+
+from __future__ import annotations
+
+import re
+
+TATWEEL = "\u0640"
+
+# --- Diacritics / combining marks -------------------------------------------
+# Haraakat, shadda, sukun and the three tanween marks (U+064B..U+0652).
+MARK_CODEPOINTS: set[int] = set(range(0x064B, 0x0653))
+# Maddah, hamza above/below, subscript alef, inverted damma, etc.
+MARK_CODEPOINTS |= {0x0653, 0x0654, 0x0655, 0x0656, 0x0657, 0x0658, 0x0659}
+MARK_CODEPOINTS |= {0x065A, 0x065B, 0x065C, 0x065D, 0x065E, 0x065F}
+# Dagger / superscript alef.
+MARK_CODEPOINTS |= {0x0670}
+# Quranic annotation signs (small high/low marks, sajdah, ...).
+MARK_CODEPOINTS |= set(range(0x06D6, 0x06EE))
+# Arabic Extended-A combining marks.
+MARK_CODEPOINTS |= set(range(0x08F0, 0x0900))
+
+# Convenience groups used by the tajweed stage.
+SHADDA = "\u0651"
+MADDAH = "\u0653"
+SUPERSCRIPT_ALEF = "\u0670"
+TANWEEN_CODEPOINTS = {0x064B, 0x064C, 0x064D}
+HARAKAT_CODEPOINTS = {0x064E, 0x064F, 0x0650}
+SUKUN_CODEPOINTS = {0x0652}
+
+# --- Canonical base letters -------------------------------------------------
+BASE_LETTERS: set[str] = set(
+    "ابتثجحخدذرزسشصضطظعغفقكلمنهويء"
+)
+
+# Map non-canonical letters onto their canonical skeleton equivalent.
+NORMALIZE_MAP: dict[str, str] = {
+    "\u0622": "\u0627",  # ALEF WITH MADDA ABOVE      -> ا
+    "\u0623": "\u0627",  # ALEF WITH HAMZA ABOVE      -> ا
+    "\u0625": "\u0627",  # ALEF WITH HAMZA BELOW      -> ا
+    "\u0671": "\u0627",  # ALEF WASLA                 -> ا
+    "\u0672": "\u0627",  # ALEF WITH WAVY HAMZA ABOVE -> ا
+    "\u0673": "\u0627",  # ALEF WITH WAVY HAMZA BELOW -> ا
+    "\u0624": "\u0648",  # WAW WITH HAMZA ABOVE       -> و
+    "\u0626": "\u064A",  # YEH WITH HAMZA ABOVE       -> ي
+    "\u0649": "\u064A",  # ALEF MAKSURA               -> ي
+    "\u0629": "\u062A",  # TEH MARBUTA                -> ت
+}
+
+# Raw codepoints that are long vowels / carriers and therefore legitimately
+# appear without a haraka: alef, alef wasla, alef maksura, alef with madda,
+# and the long-vowel waw/yeh.
+MADD_EXEMPT: set[str] = {
+    "\u0627",  # alef
+    "\u0622",  # alef with madda
+    "\u0671",  # alef wasla
+    "\u0672",  # alef with wavy hamza above
+    "\u0673",  # alef with wavy hamza below
+    "\u0649",  # alef maksura
+    "\u0648",  # waw (long vowel)
+    "\u064A",  # yeh (long vowel)
+}
+
+_WHITESPACE_RE = re.compile(r"\s+")
+
+
+def is_mark(ch: str) -> bool:
+    return ord(ch) in MARK_CODEPOINTS
+
+
+def is_base_letter(ch: str) -> bool:
+    return ch in BASE_LETTERS
+
+
+def normalize_letter(ch: str) -> str | None:
+    """Return the canonical base letter for *ch*, or ``None`` if not a letter."""
+    if ch in NORMALIZE_MAP:
+        return NORMALIZE_MAP[ch]
+    if ch in BASE_LETTERS:
+        return ch
+    return None
+
+
+def strip_marks(text: str) -> str:
+    """Remove all diacritics, Quranic marks and tatweel from *text*."""
+    return "".join(
+        ch
+        for ch in text
+        if ch != TATWEEL and ord(ch) not in MARK_CODEPOINTS
+    )
+
+
+def base_letters(text: str) -> list[str]:
+    """Return the canonical consonantal skeleton of *text* as a list."""
+    out: list[str] = []
+    for ch in text:
+        letter = normalize_letter(ch)
+        if letter is not None:
+            out.append(letter)
+    return out
+
+
+def base_skeleton(text: str) -> str:
+    """Consonantal skeleton of *text* as a single string (for dedup keys)."""
+    return "".join(base_letters(text))
+
+
+def words(text: str) -> list[str]:
+    """Whitespace split, dropping empty tokens."""
+    return [w for w in _WHITESPACE_RE.split(text.strip()) if w]
+
+
+def word_skeletons(text: str) -> list[str]:
+    """Per-word consonantal skeletons (letters only)."""
+    return [base_skeleton(w) for w in words(text)]
+
+
+def letter_clusters(word: str):
+    """Yield ``(base_letter, set_of_mark_codepoints)`` for one word.
+
+    Marks are attached to the letter they follow, which mirrors how Arabic is
+    written: a consonant is immediately followed by its harakat, shadda, ...
+    """
+    current: str | None = None
+    marks: set[int] = set()
+    for ch in word:
+        if ch == TATWEEL:
+            continue
+        if ord(ch) in MARK_CODEPOINTS:
+            marks.add(ord(ch))
+            continue
+        letter = normalize_letter(ch)
+        if letter is not None:
+            if current is not None:
+                yield current, marks
+            current, marks = letter, set()
+        # any other character (non-Arabic) is ignored
+    if current is not None:
+        yield current, marks
+
+
+def _word_clusters_raw(word: str) -> list[tuple[str, set[int]]]:
+    """``[(raw_letter, marks), ...]`` for one word, preserving raw codepoints."""
+    out: list[tuple[str, set[int]]] = []
+    current: str | None = None
+    marks: set[int] = set()
+    for ch in word:
+        if ch == TATWEEL:
+            continue
+        if ord(ch) in MARK_CODEPOINTS:
+            marks.add(ord(ch))
+            continue
+        if normalize_letter(ch) is not None:
+            if current is not None:
+                out.append((current, marks))
+            current, marks = ch, set()
+        else:
+            if current is not None:
+                out.append((current, marks))
+            current, marks = None, set()
+    if current is not None:
+        out.append((current, marks))
+    return out
+
+
+def diacritization_ratio(text: str) -> float:
+    """Fraction of markable consonants that actually carry a mark.
+
+    The spec asks for "every letter carries a diacritic".  Taken literally that
+    is impossible for *any* Uthmani text: word-final consonants are routinely
+    written without sukun (``مِن``, ``أَن``), long vowels (ا و ي) never carry a
+    haraka, and assimilation hides marks (the first lam of the definite article
+    in ``ٱللَّهِ``, the noon in ``كُنتُمْ``).  We therefore measure how
+    vocalised the text is: exempting long-vowel carriers and word-final
+    consonants, a fully diacritized text scores ~1.0 while a skeletal text
+    (``simple-clean``) scores 0.0.  The caller picks the minimum acceptable
+    ratio.
+    """
+    marked = total = 0
+    for word in words(text):
+        clusters = _word_clusters_raw(word)
+        last = len(clusters) - 1
+        for idx, (raw, marks) in enumerate(clusters):
+            if raw in MADD_EXEMPT or idx == last:
+                continue
+            total += 1
+            if marks:
+                marked += 1
+    return marked / total if total else 1.0
+
+
+def is_fully_diacritized(text: str, min_ratio: float = 1.0) -> bool:
+    """True when :func:`diacritization_ratio` is at least *min_ratio*."""
+    return diacritization_ratio(text) >= min_ratio
