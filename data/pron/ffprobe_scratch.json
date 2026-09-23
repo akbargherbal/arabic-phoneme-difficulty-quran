@@ -1,0 +1,88 @@
+{
+  "bucket": "gs://sheikh-fitzgerald-backup/ARABIC_DATA/QURAN_VERSE_BY_VERSE_RECITATIONS_DATASETS",
+  "scratch_dir": "/tmp/opencode/audio_audit",
+  "note": "ffprobe of the Part C step 8 scratch download; audio not committed.",
+  "reciters": [
+    "Husary_Muallim_128kbps",
+    "Minshawy_Murattal_128kbps"
+  ],
+  "keys": [
+    "068030",
+    "026148",
+    "023041"
+  ],
+  "files": [
+    {
+      "reciter": "Husary_Muallim_128kbps",
+      "key": "068030",
+      "length_type": "A",
+      "file": "Husary_Muallim_128kbps__068030.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 12.826125,
+      "bytes": 206858
+    },
+    {
+      "reciter": "Husary_Muallim_128kbps",
+      "key": "026148",
+      "length_type": "A",
+      "file": "Husary_Muallim_128kbps__026148.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 10.710188,
+      "bytes": 172042
+    },
+    {
+      "reciter": "Husary_Muallim_128kbps",
+      "key": "023041",
+      "length_type": "B",
+      "file": "Husary_Muallim_128kbps__023041.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 24.189375,
+      "bytes": 389130
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "key": "068030",
+      "length_type": "A",
+      "file": "Minshawy_Murattal_128kbps__068030.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 7.21775,
+      "bytes": 115484
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "key": "026148",
+      "length_type": "A",
+      "file": "Minshawy_Murattal_128kbps__026148.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 6.042313,
+      "bytes": 96677
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "key": "023041",
+      "length_type": "B",
+      "file": "Minshawy_Murattal_128kbps__023041.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 14.349188,
+      "bytes": 229587
+    }
+  ]
+}
