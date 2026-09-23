@@ -1,0 +1,917 @@
+{
+  "bucket": "gs://sheikh-fitzgerald-backup/ARABIC_DATA/QURAN_VERSE_BY_VERSE_RECITATIONS_DATASETS",
+  "scratch_dir": "/tmp/opencode/reciter_duration_probe",
+  "note": "ffprobe of the Task 4 duration probe across all 9 shortlisted reciters; audio not committed.",
+  "seed": 42,
+  "reciters": [
+    "Husary_128kbps",
+    "Abdul_Basit_Murattal_192kbps",
+    "Abu_Bakr_Ash-Shaatree_128kbps",
+    "Minshawy_Murattal_128kbps",
+    "Hudhaify_128kbps",
+    "Muhammad_Ayyoub_128kbps",
+    "Yaser_Salamah_128kbps",
+    "aziz_alili_128kbps",
+    "Abdullah_Basfar_192kbps"
+  ],
+  "keys": [
+    "029015",
+    "037027",
+    "068030",
+    "004021",
+    "029037",
+    "043067"
+  ],
+  "key_length_types": {
+    "029015": "A",
+    "037027": "A",
+    "068030": "A",
+    "004021": "B",
+    "029037": "B",
+    "043067": "B"
+  },
+  "files": [
+    {
+      "reciter": "Husary_128kbps",
+      "key": "029015",
+      "length_type": "A",
+      "file": "Husary_128kbps/029015.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 20.174563,
+      "bytes": 326889
+    },
+    {
+      "reciter": "Husary_128kbps",
+      "key": "037027",
+      "length_type": "A",
+      "file": "Husary_128kbps/037027.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 13.199813,
+      "bytes": 215293
+    },
+    {
+      "reciter": "Husary_128kbps",
+      "key": "068030",
+      "length_type": "A",
+      "file": "Husary_128kbps/068030.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 12.050438,
+      "bytes": 196903
+    },
+    {
+      "reciter": "Husary_128kbps",
+      "key": "004021",
+      "length_type": "B",
+      "file": "Husary_128kbps/004021.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 22.107625,
+      "bytes": 357818
+    },
+    {
+      "reciter": "Husary_128kbps",
+      "key": "029037",
+      "length_type": "B",
+      "file": "Husary_128kbps/029037.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 14.009625,
+      "bytes": 228250
+    },
+    {
+      "reciter": "Husary_128kbps",
+      "key": "043067",
+      "length_type": "B",
+      "file": "Husary_128kbps/043067.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 14.950063,
+      "bytes": 243297
+    },
+    {
+      "reciter": "Abdul_Basit_Murattal_192kbps",
+      "key": "029015",
+      "length_type": "A",
+      "file": "Abdul_Basit_Murattal_192kbps/029015.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 192000,
+      "duration_s": 14.033083,
+      "bytes": 336794
+    },
+    {
+      "reciter": "Abdul_Basit_Murattal_192kbps",
+      "key": "037027",
+      "length_type": "A",
+      "file": "Abdul_Basit_Murattal_192kbps/037027.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 192000,
+      "duration_s": 7.580833,
+      "bytes": 181940
+    },
+    {
+      "reciter": "Abdul_Basit_Murattal_192kbps",
+      "key": "068030",
+      "length_type": "A",
+      "file": "Abdul_Basit_Murattal_192kbps/068030.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 192000,
+      "duration_s": 7.815958,
+      "bytes": 187583
+    },
+    {
+      "reciter": "Abdul_Basit_Murattal_192kbps",
+      "key": "004021",
+      "length_type": "B",
+      "file": "Abdul_Basit_Murattal_192kbps/004021.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 192000,
+      "duration_s": 14.9735,
+      "bytes": 359364
+    },
+    {
+      "reciter": "Abdul_Basit_Murattal_192kbps",
+      "key": "029037",
+      "length_type": "B",
+      "file": "Abdul_Basit_Murattal_192kbps/029037.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 192000,
+      "duration_s": 11.1335,
+      "bytes": 267204
+    },
+    {
+      "reciter": "Abdul_Basit_Murattal_192kbps",
+      "key": "043067",
+      "length_type": "B",
+      "file": "Abdul_Basit_Murattal_192kbps/043067.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 192000,
+      "duration_s": 13.014333,
+      "bytes": 312344
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "029015",
+      "length_type": "A",
+      "file": "Abu_Bakr_Ash-Shaatree_128kbps/029015.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 9.438188,
+      "bytes": 151011
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "037027",
+      "length_type": "A",
+      "file": "Abu_Bakr_Ash-Shaatree_128kbps/037027.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 7.296188,
+      "bytes": 116739
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "068030",
+      "length_type": "A",
+      "file": "Abu_Bakr_Ash-Shaatree_128kbps/068030.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 6.199063,
+      "bytes": 99185
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "004021",
+      "length_type": "B",
+      "file": "Abu_Bakr_Ash-Shaatree_128kbps/004021.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 13.643938,
+      "bytes": 218303
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "029037",
+      "length_type": "B",
+      "file": "Abu_Bakr_Ash-Shaatree_128kbps/029037.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 7.923125,
+      "bytes": 126770
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "043067",
+      "length_type": "B",
+      "file": "Abu_Bakr_Ash-Shaatree_128kbps/043067.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 9.751625,
+      "bytes": 156026
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "key": "029015",
+      "length_type": "A",
+      "file": "Minshawy_Murattal_128kbps/029015.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 11.972125,
+      "bytes": 191554
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "key": "037027",
+      "length_type": "A",
+      "file": "Minshawy_Murattal_128kbps/037027.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 8.60225,
+      "bytes": 137636
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "key": "068030",
+      "length_type": "A",
+      "file": "Minshawy_Murattal_128kbps/068030.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 7.21775,
+      "bytes": 115484
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "key": "004021",
+      "length_type": "B",
+      "file": "Minshawy_Murattal_128kbps/004021.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 15.524688,
+      "bytes": 248395
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "key": "029037",
+      "length_type": "B",
+      "file": "Minshawy_Murattal_128kbps/029037.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 9.203125,
+      "bytes": 147250
+    },
+    {
+      "reciter": "Minshawy_Murattal_128kbps",
+      "key": "043067",
+      "length_type": "B",
+      "file": "Minshawy_Murattal_128kbps/043067.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 10.848813,
+      "bytes": 173581
+    },
+    {
+      "reciter": "Hudhaify_128kbps",
+      "key": "029015",
+      "length_type": "A",
+      "file": "Hudhaify_128kbps/029015.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 11.319,
+      "bytes": 181104
+    },
+    {
+      "reciter": "Hudhaify_128kbps",
+      "key": "037027",
+      "length_type": "A",
+      "file": "Hudhaify_128kbps/037027.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 9.568813,
+      "bytes": 153101
+    },
+    {
+      "reciter": "Hudhaify_128kbps",
+      "key": "068030",
+      "length_type": "A",
+      "file": "Hudhaify_128kbps/068030.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 7.923125,
+      "bytes": 126770
+    },
+    {
+      "reciter": "Hudhaify_128kbps",
+      "key": "004021",
+      "length_type": "B",
+      "file": "Hudhaify_128kbps/004021.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 12.834125,
+      "bytes": 205346
+    },
+    {
+      "reciter": "Hudhaify_128kbps",
+      "key": "029037",
+      "length_type": "B",
+      "file": "Hudhaify_128kbps/029037.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 9.229188,
+      "bytes": 147667
+    },
+    {
+      "reciter": "Hudhaify_128kbps",
+      "key": "043067",
+      "length_type": "B",
+      "file": "Hudhaify_128kbps/043067.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 13.043125,
+      "bytes": 208690
+    },
+    {
+      "reciter": "Muhammad_Ayyoub_128kbps",
+      "key": "029015",
+      "length_type": "A",
+      "file": "Muhammad_Ayyoub_128kbps/029015.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 13.408813,
+      "bytes": 214541
+    },
+    {
+      "reciter": "Muhammad_Ayyoub_128kbps",
+      "key": "037027",
+      "length_type": "A",
+      "file": "Muhammad_Ayyoub_128kbps/037027.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 9.621063,
+      "bytes": 153937
+    },
+    {
+      "reciter": "Muhammad_Ayyoub_128kbps",
+      "key": "068030",
+      "length_type": "A",
+      "file": "Muhammad_Ayyoub_128kbps/068030.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 8.132063,
+      "bytes": 130113
+    },
+    {
+      "reciter": "Muhammad_Ayyoub_128kbps",
+      "key": "004021",
+      "length_type": "B",
+      "file": "Muhammad_Ayyoub_128kbps/004021.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 13.513313,
+      "bytes": 216213
+    },
+    {
+      "reciter": "Muhammad_Ayyoub_128kbps",
+      "key": "029037",
+      "length_type": "B",
+      "file": "Muhammad_Ayyoub_128kbps/029037.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 10.561438,
+      "bytes": 168983
+    },
+    {
+      "reciter": "Muhammad_Ayyoub_128kbps",
+      "key": "043067",
+      "length_type": "B",
+      "file": "Muhammad_Ayyoub_128kbps/043067.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 11.89375,
+      "bytes": 190300
+    },
+    {
+      "reciter": "Yaser_Salamah_128kbps",
+      "key": "029015",
+      "length_type": "A",
+      "file": "Yaser_Salamah_128kbps/029015.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 9.438188,
+      "bytes": 152035
+    },
+    {
+      "reciter": "Yaser_Salamah_128kbps",
+      "key": "037027",
+      "length_type": "A",
+      "file": "Yaser_Salamah_128kbps/037027.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 9.385938,
+      "bytes": 151199
+    },
+    {
+      "reciter": "Yaser_Salamah_128kbps",
+      "key": "068030",
+      "length_type": "A",
+      "file": "Yaser_Salamah_128kbps/068030.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 7.165563,
+      "bytes": 115673
+    },
+    {
+      "reciter": "Yaser_Salamah_128kbps",
+      "key": "004021",
+      "length_type": "B",
+      "file": "Yaser_Salamah_128kbps/004021.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 13.043125,
+      "bytes": 209714
+    },
+    {
+      "reciter": "Yaser_Salamah_128kbps",
+      "key": "029037",
+      "length_type": "B",
+      "file": "Yaser_Salamah_128kbps/029037.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 8.889625,
+      "bytes": 143258
+    },
+    {
+      "reciter": "Yaser_Salamah_128kbps",
+      "key": "043067",
+      "length_type": "B",
+      "file": "Yaser_Salamah_128kbps/043067.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 12.9125,
+      "bytes": 207624
+    },
+    {
+      "reciter": "aziz_alili_128kbps",
+      "key": "029015",
+      "length_type": "A",
+      "file": "aziz_alili_128kbps/029015.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 11.789188,
+      "bytes": 190464
+    },
+    {
+      "reciter": "aziz_alili_128kbps",
+      "key": "037027",
+      "length_type": "A",
+      "file": "aziz_alili_128kbps/037027.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 7.217813,
+      "bytes": 116736
+    },
+    {
+      "reciter": "aziz_alili_128kbps",
+      "key": "068030",
+      "length_type": "A",
+      "file": "aziz_alili_128kbps/068030.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 6.381875,
+      "bytes": 102400
+    },
+    {
+      "reciter": "aziz_alili_128kbps",
+      "key": "004021",
+      "length_type": "B",
+      "file": "aziz_alili_128kbps/004021.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 12.65125,
+      "bytes": 202752
+    },
+    {
+      "reciter": "aziz_alili_128kbps",
+      "key": "029037",
+      "length_type": "B",
+      "file": "aziz_alili_128kbps/029037.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 10.169625,
+      "bytes": 163840
+    },
+    {
+      "reciter": "aziz_alili_128kbps",
+      "key": "043067",
+      "length_type": "B",
+      "file": "aziz_alili_128kbps/043067.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 128000,
+      "duration_s": 10.953313,
+      "bytes": 176128
+    },
+    {
+      "reciter": "Abdullah_Basfar_192kbps",
+      "key": "029015",
+      "length_type": "A",
+      "file": "Abdullah_Basfar_192kbps/029015.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 192000,
+      "duration_s": 12.544125,
+      "bytes": 301059
+    },
+    {
+      "reciter": "Abdullah_Basfar_192kbps",
+      "key": "037027",
+      "length_type": "A",
+      "file": "Abdullah_Basfar_192kbps/037027.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 192000,
+      "duration_s": 8.024917,
+      "bytes": 192598
+    },
+    {
+      "reciter": "Abdullah_Basfar_192kbps",
+      "key": "068030",
+      "length_type": "A",
+      "file": "Abdullah_Basfar_192kbps/068030.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 192000,
+      "duration_s": 7.45025,
+      "bytes": 178806
+    },
+    {
+      "reciter": "Abdullah_Basfar_192kbps",
+      "key": "004021",
+      "length_type": "B",
+      "file": "Abdullah_Basfar_192kbps/004021.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 192000,
+      "duration_s": 13.53675,
+      "bytes": 324882
+    },
+    {
+      "reciter": "Abdullah_Basfar_192kbps",
+      "key": "029037",
+      "length_type": "B",
+      "file": "Abdullah_Basfar_192kbps/029037.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 192000,
+      "duration_s": 10.036375,
+      "bytes": 240873
+    },
+    {
+      "reciter": "Abdullah_Basfar_192kbps",
+      "key": "043067",
+      "length_type": "B",
+      "file": "Abdullah_Basfar_192kbps/043067.mp3",
+      "codec": "mp3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "bit_rate": 192000,
+      "duration_s": 11.029,
+      "bytes": 264696
+    }
+  ],
+  "summary": {
+    "per_reciter": {
+      "Abdul_Basit_Murattal_192kbps": {
+        "type_A": {
+          "n": 3,
+          "mean_duration_s": 9.809958,
+          "min_duration_s": 7.580833,
+          "max_duration_s": 14.033083,
+          "total_duration_s": 29.429874
+        },
+        "type_B": {
+          "n": 3,
+          "mean_duration_s": 13.040444,
+          "min_duration_s": 11.1335,
+          "max_duration_s": 14.9735,
+          "total_duration_s": 39.121333
+        },
+        "overall": {
+          "n": 6,
+          "mean_duration_s": 11.425201,
+          "min_duration_s": 7.580833,
+          "max_duration_s": 14.9735,
+          "total_duration_s": 68.551207
+        }
+      },
+      "Abdullah_Basfar_192kbps": {
+        "type_A": {
+          "n": 3,
+          "mean_duration_s": 9.339764,
+          "min_duration_s": 7.45025,
+          "max_duration_s": 12.544125,
+          "total_duration_s": 28.019292
+        },
+        "type_B": {
+          "n": 3,
+          "mean_duration_s": 11.534042,
+          "min_duration_s": 10.036375,
+          "max_duration_s": 13.53675,
+          "total_duration_s": 34.602125
+        },
+        "overall": {
+          "n": 6,
+          "mean_duration_s": 10.436903,
+          "min_duration_s": 7.45025,
+          "max_duration_s": 13.53675,
+          "total_duration_s": 62.621417
+        }
+      },
+      "Abu_Bakr_Ash-Shaatree_128kbps": {
+        "type_A": {
+          "n": 3,
+          "mean_duration_s": 7.64448,
+          "min_duration_s": 6.199063,
+          "max_duration_s": 9.438188,
+          "total_duration_s": 22.933439
+        },
+        "type_B": {
+          "n": 3,
+          "mean_duration_s": 10.439563,
+          "min_duration_s": 7.923125,
+          "max_duration_s": 13.643938,
+          "total_duration_s": 31.318688
+        },
+        "overall": {
+          "n": 6,
+          "mean_duration_s": 9.042021,
+          "min_duration_s": 6.199063,
+          "max_duration_s": 13.643938,
+          "total_duration_s": 54.252127
+        }
+      },
+      "Hudhaify_128kbps": {
+        "type_A": {
+          "n": 3,
+          "mean_duration_s": 9.603646,
+          "min_duration_s": 7.923125,
+          "max_duration_s": 11.319,
+          "total_duration_s": 28.810938
+        },
+        "type_B": {
+          "n": 3,
+          "mean_duration_s": 11.702146,
+          "min_duration_s": 9.229188,
+          "max_duration_s": 13.043125,
+          "total_duration_s": 35.106438
+        },
+        "overall": {
+          "n": 6,
+          "mean_duration_s": 10.652896,
+          "min_duration_s": 7.923125,
+          "max_duration_s": 13.043125,
+          "total_duration_s": 63.917376
+        }
+      },
+      "Husary_128kbps": {
+        "type_A": {
+          "n": 3,
+          "mean_duration_s": 15.141605,
+          "min_duration_s": 12.050438,
+          "max_duration_s": 20.174563,
+          "total_duration_s": 45.424814
+        },
+        "type_B": {
+          "n": 3,
+          "mean_duration_s": 17.022438,
+          "min_duration_s": 14.009625,
+          "max_duration_s": 22.107625,
+          "total_duration_s": 51.067313
+        },
+        "overall": {
+          "n": 6,
+          "mean_duration_s": 16.082021,
+          "min_duration_s": 12.050438,
+          "max_duration_s": 22.107625,
+          "total_duration_s": 96.492127
+        }
+      },
+      "Minshawy_Murattal_128kbps": {
+        "type_A": {
+          "n": 3,
+          "mean_duration_s": 9.264042,
+          "min_duration_s": 7.21775,
+          "max_duration_s": 11.972125,
+          "total_duration_s": 27.792125
+        },
+        "type_B": {
+          "n": 3,
+          "mean_duration_s": 11.858875,
+          "min_duration_s": 9.203125,
+          "max_duration_s": 15.524688,
+          "total_duration_s": 35.576626
+        },
+        "overall": {
+          "n": 6,
+          "mean_duration_s": 10.561458,
+          "min_duration_s": 7.21775,
+          "max_duration_s": 15.524688,
+          "total_duration_s": 63.368751
+        }
+      },
+      "Muhammad_Ayyoub_128kbps": {
+        "type_A": {
+          "n": 3,
+          "mean_duration_s": 10.387313,
+          "min_duration_s": 8.132063,
+          "max_duration_s": 13.408813,
+          "total_duration_s": 31.161939
+        },
+        "type_B": {
+          "n": 3,
+          "mean_duration_s": 11.9895,
+          "min_duration_s": 10.561438,
+          "max_duration_s": 13.513313,
+          "total_duration_s": 35.968501
+        },
+        "overall": {
+          "n": 6,
+          "mean_duration_s": 11.188407,
+          "min_duration_s": 8.132063,
+          "max_duration_s": 13.513313,
+          "total_duration_s": 67.13044
+        }
+      },
+      "Yaser_Salamah_128kbps": {
+        "type_A": {
+          "n": 3,
+          "mean_duration_s": 8.66323,
+          "min_duration_s": 7.165563,
+          "max_duration_s": 9.438188,
+          "total_duration_s": 25.989689
+        },
+        "type_B": {
+          "n": 3,
+          "mean_duration_s": 11.615083,
+          "min_duration_s": 8.889625,
+          "max_duration_s": 13.043125,
+          "total_duration_s": 34.84525
+        },
+        "overall": {
+          "n": 6,
+          "mean_duration_s": 10.139157,
+          "min_duration_s": 7.165563,
+          "max_duration_s": 13.043125,
+          "total_duration_s": 60.834939
+        }
+      },
+      "aziz_alili_128kbps": {
+        "type_A": {
+          "n": 3,
+          "mean_duration_s": 8.462959,
+          "min_duration_s": 6.381875,
+          "max_duration_s": 11.789188,
+          "total_duration_s": 25.388876
+        },
+        "type_B": {
+          "n": 3,
+          "mean_duration_s": 11.258063,
+          "min_duration_s": 10.169625,
+          "max_duration_s": 12.65125,
+          "total_duration_s": 33.774188
+        },
+        "overall": {
+          "n": 6,
+          "mean_duration_s": 9.860511,
+          "min_duration_s": 6.381875,
+          "max_duration_s": 12.65125,
+          "total_duration_s": 59.163064
+        }
+      }
+    },
+    "pooled_all_reciters": {
+      "type_A": {
+        "n": 27,
+        "mean_duration_s": 9.812999,
+        "min_duration_s": 6.199063,
+        "max_duration_s": 20.174563,
+        "total_duration_s": 264.950986
+      },
+      "type_B": {
+        "n": 27,
+        "mean_duration_s": 12.27335,
+        "min_duration_s": 7.923125,
+        "max_duration_s": 22.107625,
+        "total_duration_s": 331.380462
+      },
+      "overall": {
+        "n": 54,
+        "mean_duration_s": 11.043175,
+        "min_duration_s": 6.199063,
+        "max_duration_s": 22.107625,
+        "total_duration_s": 596.331448
+      }
+    }
+  }
+}
