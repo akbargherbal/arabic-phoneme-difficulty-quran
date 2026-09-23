@@ -45,7 +45,7 @@ def load_edition(path: str) -> tuple[dict[tuple[int, int], str], int]:
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--shortlist", default="data/pron/pron_shortlist.csv")
+    ap.add_argument("--shortlist", default="data/pron/pron_shortlist_v2.csv")
     ap.add_argument("--uthmani", default="data/quran/uthmani.json")
     ap.add_argument("--simple", default="data/quran/simple.json")
     ap.add_argument("--out", default="data/pron_shortlist_dualscript.jsonl")
@@ -78,6 +78,7 @@ def main(argv: list[str] | None = None) -> int:
             "key": key,
             "surah": surah,
             "ayah": ayah,
+            "length_type": row.get("length_type") or None,
             "uthmani_raw": u_raw,
             "uthmani_clean": arabic.strip_pause_marks(u_raw),
             "simple_raw": s_raw,
