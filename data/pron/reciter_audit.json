@@ -1,16 +1,19 @@
 {
   "bucket": "gs://sheikh-fitzgerald-backup/ARABIC_DATA/QURAN_VERSE_BY_VERSE_RECITATIONS_DATASETS",
   "shortlist_count": 40,
+  "style_metadata_note": "No style/type/category field exists in _catalog.json, _registry/registry.json, _registry/registry_history/*.json or _metadata/*/reciter.json; all 'note' fields are empty. classification_source=name-keyword|common-knowledge|none.",
   "reciters": [
     {
       "dir": "Abdul_Basit_Mujawwad_128kbps",
       "classification": "Mujawwad",
+      "classification_source": "name-keyword",
       "excluded": true,
       "duplicate_of": null
     },
     {
       "dir": "Abdul_Basit_Murattal_192kbps",
       "classification": "Murattal",
+      "classification_source": "name-keyword",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -20,7 +23,8 @@
     },
     {
       "dir": "Abdullaah_3awwaad_Al-Juhaynee_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -30,7 +34,8 @@
     },
     {
       "dir": "Abdullah_Basfar_192kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -40,7 +45,8 @@
     },
     {
       "dir": "Abdullah_Matroud_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -50,7 +56,8 @@
     },
     {
       "dir": "Abdurrahmaan_As-Sudais_192kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -60,7 +67,8 @@
     },
     {
       "dir": "Abu_Bakr_Ash-Shaatree_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -70,7 +78,8 @@
     },
     {
       "dir": "Ahmed_Neana_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -80,7 +89,8 @@
     },
     {
       "dir": "Ahmed_ibn_Ali_al-Ajamy_128kbps_ketaballah.net",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": "ahmed_ibn_ali_al_ajamy_128kbps",
       "coverage": 40,
@@ -90,7 +100,8 @@
     },
     {
       "dir": "Akram_AlAlaqimy_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -100,7 +111,8 @@
     },
     {
       "dir": "Hani_Rifai_192kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -110,7 +122,8 @@
     },
     {
       "dir": "Hudhaify_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -120,7 +133,8 @@
     },
     {
       "dir": "Husary_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -131,12 +145,14 @@
     {
       "dir": "Husary_128kbps_Mujawwad",
       "classification": "Mujawwad",
+      "classification_source": "name-keyword",
       "excluded": true,
       "duplicate_of": null
     },
     {
       "dir": "Husary_Muallim_128kbps",
       "classification": "Muallim",
+      "classification_source": "name-keyword",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -146,7 +162,8 @@
     },
     {
       "dir": "Khaalid_Abdullaah_al-Qahtaanee_192kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -157,6 +174,7 @@
     {
       "dir": "Minshawy_Murattal_128kbps",
       "classification": "Murattal",
+      "classification_source": "name-keyword",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -166,7 +184,8 @@
     },
     {
       "dir": "Mohammad_al_Tablaway_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -176,7 +195,8 @@
     },
     {
       "dir": "Muhammad_AbdulKareem_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -186,7 +206,8 @@
     },
     {
       "dir": "Muhammad_Ayyoub_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -196,7 +217,8 @@
     },
     {
       "dir": "Muhammad_Jibreel_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -206,7 +228,8 @@
     },
     {
       "dir": "Muhsin_Al_Qasim_192kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -216,7 +239,8 @@
     },
     {
       "dir": "Nasser_Alqatami_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -226,7 +250,8 @@
     },
     {
       "dir": "Sahl_Yassin_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -236,7 +261,8 @@
     },
     {
       "dir": "Salaah_AbdulRahman_Bukhatir_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -246,7 +272,8 @@
     },
     {
       "dir": "Salah_Al_Budair_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -256,7 +283,8 @@
     },
     {
       "dir": "Saood_ash-Shuraym_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -266,7 +294,8 @@
     },
     {
       "dir": "Yaser_Salamah_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -276,7 +305,8 @@
     },
     {
       "dir": "Yasser_Ad-Dussary_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -286,7 +316,8 @@
     },
     {
       "dir": "ahmed_ibn_ali_al_ajamy_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -296,7 +327,8 @@
     },
     {
       "dir": "aziz_alili_128kbps",
-      "classification": "unknown",
+      "classification": "Murattal",
+      "classification_source": "common-knowledge",
       "excluded": false,
       "duplicate_of": null,
       "coverage": 40,
@@ -307,6 +339,7 @@
     {
       "dir": "warsh",
       "classification": "unknown",
+      "classification_source": "none",
       "excluded": true,
       "duplicate_of": null
     }

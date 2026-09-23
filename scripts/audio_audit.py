@@ -5,9 +5,15 @@ LISTING ONLY: this reads the bucket's top-level reciter prefixes and lists each
 directory's objects to see which of the shortlisted ``SSSAAA.mp3`` files exist.
 No audio is downloaded here (a separate scratch step probes a few files).
 
-Classification is by directory name (the catalog/registry/metadata carry
-riwayah, verse counts and provenance but no performance-style field).  ``warsh``
-and the two Mujawwad directories are excluded per policy.
+Performance style is inferred from the directory name.  This was confirmed to
+be the only available signal: ``_catalog.json``, ``_registry/registry.json``,
+``_registry/registry_history/*.json`` and every ``_metadata/<dir>/reciter.json``
+(all 31) carry riwayah, bitrate, verse counts and provenance, but **no**
+style/type/category field and every ``note`` field is empty.  A literal name
+match (Mujawwad/Muallim/Murattal) is preferred; otherwise a curated
+common-knowledge map of well-known Murattal reciters is used and flagged with
+``classification_source="common-knowledge"``.  ``warsh`` and the two Mujawwad
+directories are excluded per policy.
 
 Usage:
     python scripts/audio_audit.py \
@@ -22,7 +28,6 @@ import csv
 import json
 import os
 import subprocess
-import sys
 from concurrent.futures import ThreadPoolExecutor
 
 BUCKET = (
@@ -38,17 +43,51 @@ EXCLUDED_DIRS = {
 DUPLICATE_OF = {
     "Ahmed_ibn_Ali_al-Ajamy_128kbps_ketaballah.net": "ahmed_ibn_ali_al_ajamy_128kbps",
 }
+# Style keywords absent from bucket metadata; everyayah.com's verse-by-verse
+# set is Murattal.  These are recited in the Murattal style by common
+# knowledge; a literal name match (below) always takes precedence.
+KNOWN_MURATTAL = {
+    "Abdullaah_3awwaad_Al-Juhaynee_128kbps",
+    "Abdullah_Basfar_192kbps",
+    "Abdullah_Matroud_128kbps",
+    "Abdurrahmaan_As-Sudais_192kbps",
+    "Abu_Bakr_Ash-Shaatree_128kbps",
+    "Ahmed_Neana_128kbps",
+    "Ahmed_ibn_Ali_al-Ajamy_128kbps_ketaballah.net",
+    "ahmed_ibn_ali_al_ajamy_128kbps",
+    "Akram_AlAlaqimy_128kbps",
+    "Hani_Rifai_192kbps",
+    "Hudhaify_128kbps",
+    "Husary_128kbps",  # base Husary; _Mujawwad/_Muallim are named separately
+    "Khaalid_Abdullaah_al-Qahtaanee_192kbps",
+    "Mohammad_al_Tablaway_128kbps",
+    "Muhammad_AbdulKareem_128kbps",
+    "Muhammad_Ayyoub_128kbps",
+    "Muhammad_Jibreel_128kbps",
+    "Muhsin_Al_Qasim_192kbps",
+    "Nasser_Alqatami_128kbps",
+    "Sahl_Yassin_128kbps",
+    "Salaah_AbdulRahman_Bukhatir_128kbps",
+    "Salah_Al_Budair_128kbps",
+    "Saood_ash-Shuraym_128kbps",
+    "Yaser_Salamah_128kbps",
+    "Yasser_Ad-Dussary_128kbps",
+    "aziz_alili_128kbps",
+}
 
 
-def classify(dirname: str) -> str:
+def classify(dirname: str) -> tuple[str, str]:
+    """Return (style, source); source is name-keyword/common-knowledge/none."""
     name = dirname.lower()
     if "mujawwad" in name:
-        return "Mujawwad"
+        return "Mujawwad", "name-keyword"
     if "muallim" in name:
-        return "Muallim"
+        return "Muallim", "name-keyword"
     if "murattal" in name:
-        return "Murattal"
-    return "unknown"
+        return "Murattal", "name-keyword"
+    if dirname in KNOWN_MURATTAL:
+        return "Murattal", "common-knowledge"
+    return "unknown", "none"
 
 
 def gcloud_ls(prefix: str) -> list[str]:
@@ -109,9 +148,11 @@ def main(argv: list[str] | None = None) -> int:
 
     audit = []
     for dirname in dirs:
+        style, source = classify(dirname)
         entry = {
             "dir": dirname,
-            "classification": classify(dirname),
+            "classification": style,
+            "classification_source": source,
             "excluded": dirname in EXCLUDED_DIRS,
             "duplicate_of": DUPLICATE_OF.get(dirname),
         }
@@ -125,20 +166,30 @@ def main(argv: list[str] | None = None) -> int:
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as fh:
         json.dump(
-            {"bucket": BUCKET, "shortlist_count": len(keys), "reciters": audit},
+            {
+                "bucket": BUCKET,
+                "shortlist_count": len(keys),
+                "style_metadata_note": (
+                    "No style/type/category field exists in _catalog.json, "
+                    "_registry/registry.json, _registry/registry_history/*.json "
+                    "or _metadata/*/reciter.json; all 'note' fields are empty. "
+                    "classification_source=name-keyword|common-knowledge|none."
+                ),
+                "reciters": audit,
+            },
             fh, ensure_ascii=False, indent=2,
         )
 
-    header = f"{'directory':<48} {'class':<9} {'cov':>5} {'dup':<30} excl"
+    header = f"{'directory':<48} {'class':<9} {'src':<17} {'cov':>5} {'dup':<30} excl"
     print(header)
     print("-" * len(header))
     for e in sorted(
         audit,
-        key=lambda x: (x["excluded"], -x.get("coverage", -1)),
+        key=lambda x: (x["excluded"], x["classification_source"], -x.get("coverage", -1)),
     ):
         dup = e["duplicate_of"] or ""
         print(
-            f"{e['dir']:<48} {e['classification']:<9} "
+            f"{e['dir']:<48} {e['classification']:<9} {e['classification_source']:<17} "
             f"{e.get('coverage', '-'):>5} {dup:<30} {'yes' if e['excluded'] else ''}"
         )
     print(f"\nwritten: {args.out}")
