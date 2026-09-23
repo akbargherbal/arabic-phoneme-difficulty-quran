@@ -1,0 +1,101 @@
+{
+  "min_word_count": 3,
+  "max_word_count": 12,
+  "require_full_diacritization": true,
+  "diacritization_min_ratio": 0.7,
+  "dedupe_semantic_duplicates": true,
+  "letter_weights": {
+    "ا": 0,
+    "ب": 0,
+    "م": 0,
+    "ت": 0,
+    "د": 0,
+    "ن": 0,
+    "و": 0,
+    "ي": 0,
+    "ل": 0,
+    "س": 1,
+    "ز": 1,
+    "ف": 1,
+    "ك": 1,
+    "ج": 1,
+    "ش": 1,
+    "ء": 2,
+    "ه": 2,
+    "ح": 5,
+    "خ": 5,
+    "ع": 5,
+    "غ": 3,
+    "ق": 3,
+    "ث": 3,
+    "ذ": 3,
+    "ص": 3,
+    "ط": 3,
+    "ض": 6,
+    "ظ": 4
+  },
+  "hard_threshold": 2,
+  "articulation_groups": {
+    "labial": [
+      "ب",
+      "م",
+      "و"
+    ],
+    "dental_stops": [
+      "ت",
+      "د",
+      "ط"
+    ],
+    "interdental": [
+      "ث",
+      "ذ",
+      "ظ"
+    ],
+    "sibilant": [
+      "ز",
+      "س",
+      "ص"
+    ],
+    "guttural": [
+      "ء",
+      "ح",
+      "خ",
+      "ع",
+      "غ",
+      "ق",
+      "ه"
+    ],
+    "liquid_nasal": [
+      "ر",
+      "ل",
+      "ن"
+    ]
+  },
+  "emphatic_pairs": [
+    [
+      "ت",
+      "ط"
+    ],
+    [
+      "د",
+      "ض"
+    ],
+    [
+      "ذ",
+      "ظ"
+    ],
+    [
+      "س",
+      "ص"
+    ]
+  ],
+  "bonus_hard_adjacent": 2,
+  "bonus_same_group": 3,
+  "bonus_emphatic_pair": 4,
+  "adjacency_across_words": false,
+  "enable_tajweed": true,
+  "bonus_shadda_hard": 1,
+  "bonus_madd_guttural": 1,
+  "bonus_idgham": 1,
+  "density_basis": "word"
+}

@@ -26,6 +26,33 @@ MARK_CODEPOINTS |= set(range(0x06D6, 0x06EE))
 # Arabic Extended-A combining marks.
 MARK_CODEPOINTS |= set(range(0x08F0, 0x0900))
 
+# --- Quranic pause / annotation signs (U+06D6..U+06ED) ----------------------
+# The block U+06D6..U+06ED is *not* uniformly pause marks.  The sets below only
+# cover the small-high waqf signs and the pure annotation markers; the rest of
+# the range carries pronunciation in the Uthmani script and is never removed by
+# :func:`strip_pause_marks`.
+#
+# Default strip set: the waqf/pause signs U+06D6..U+06DC
+#   (صلى، قلى، م، لا، ج، ∴ three-dots، س).
+PAUSE_SIGN_CODEPOINTS: set[int] = set(range(0x06D6, 0x06DD))
+# Pure non-pronunciation markers (opt-in): end-of-ayah, rub-el-hizb, sajdah.
+NON_PRONUNCIATION_CODEPOINTS: set[int] = {0x06DD, 0x06DE, 0x06E9}
+# Uthmani marks that carry pronunciation / madd and MUST survive:
+#   U+06DF/U+06E0 silent-letter zeros, U+06E1 Uthmani sukun, U+06E2 iqlab meem,
+#   U+06E3, U+06E4 small madda, U+06E5/U+06E6 small waw/yeh (hidden madd, e.g.
+#   هُۥ), U+06E7/U+06E8 small high noon, U+06ED small low meem.  The basic
+#   tashkeel range U+064B..U+065F and the dagger alef U+0670 also stay.
+PROTECTED_PRONUNCIATION_CODEPOINTS: set[int] = (
+    {0x06DF, 0x06E0, 0x06E1, 0x06E2, 0x06E3, 0x06E4,
+     0x06E5, 0x06E6, 0x06E7, 0x06E8, 0x06ED}
+    | {0x0670}
+    | set(range(0x064B, 0x0660))
+)
+# Undecided: rounded / empty-centre high stops U+06EA..U+06EC.  Never stripped
+# by default; the codepoint tally reports where they occur so the call can be
+# made explicitly.
+UNDECIDED_HIGH_STOP_CODEPOINTS: set[int] = {0x06EA, 0x06EB, 0x06EC}
+
 # Convenience groups used by the tajweed stage.
 SHADDA = "\u0651"
 MADDAH = "\u0653"
@@ -94,6 +121,36 @@ def strip_marks(text: str) -> str:
         for ch in text
         if ch != TATWEEL and ord(ch) not in MARK_CODEPOINTS
     )
+
+
+def strip_pause_marks(text: str, *, include_non_pronunciation: bool = False) -> str:
+    """Remove Quranic pause/annotation signs, preserving Uthmani orthography.
+
+    Unlike :func:`strip_marks` this only deletes the small-high waqf signs
+    (:data:`PAUSE_SIGN_CODEPOINTS`) and leaves every pronunciation-bearing mark
+    untouched: the dagger alef (U+0670), the basic tashkeel range
+    (U+064B..U+065F), the Uthmani sukun, the silent-letter zeros, the small
+    waw/yeh hidden-madd marks, and the small high/low noon and low meem.
+
+    The function is non-destructive: it returns a new string and never mutates
+    its argument.  Whitespace is collapsed afterwards so a removed sign cannot
+    leave double or stray spaces behind.
+
+    Args:
+        include_non_pronunciation: also drop the pure annotation markers in
+            :data:`NON_PRONUNCIATION_CODEPOINTS` (end-of-ayah, rub-el-hizb and
+            sajdah place).  Off by default.
+    """
+    strip = PAUSE_SIGN_CODEPOINTS
+    if include_non_pronunciation:
+        strip = strip | NON_PRONUNCIATION_CODEPOINTS
+    kept = "".join(ch for ch in text if ord(ch) not in strip)
+    return _WHITESPACE_RE.sub(" ", kept).strip()
+
+
+def is_pause_sign(ch: str) -> bool:
+    """True for a default-strip Quranic pause sign (U+06D6..U+06DC)."""
+    return ord(ch) in PAUSE_SIGN_CODEPOINTS
 
 
 def base_letters(text: str) -> list[str]:
