@@ -1,0 +1,635 @@
+{
+  "bucket": "gs://sheikh-fitzgerald-backup/ARABIC_DATA/QURAN_VERSE_BY_VERSE_RECITATIONS_DATASETS",
+  "audio_root": "/content/arabic-phoneme-difficulty-quran/data/pron/donor_audio",
+  "shortlist": "data/pron/pron_shortlist_v2.csv",
+  "shortlist_count": 350,
+  "reciters": [
+    "Husary_128kbps",
+    "Abdul_Basit_Murattal_192kbps",
+    "Abu_Bakr_Ash-Shaatree_128kbps",
+    "Minshawy_Murattal_128kbps",
+    "Hudhaify_128kbps",
+    "Muhammad_Ayyoub_128kbps",
+    "Yaser_Salamah_128kbps",
+    "aziz_alili_128kbps",
+    "Abdullah_Basfar_192kbps"
+  ],
+  "reciter_count": 9,
+  "expected_files": 3150,
+  "files_probed": 3150,
+  "missing_files": [],
+  "failures": [],
+  "per_reciter": {
+    "Husary_128kbps": {
+      "expected": 350,
+      "count": 350,
+      "missing_count": 0,
+      "missing_keys": [],
+      "failure_count": 0,
+      "failures": [],
+      "format_breakdown": {
+        "mp3/44100Hz/2ch/128000": 350
+      },
+      "unexpected_format_files": [],
+      "codecs": [
+        "mp3"
+      ],
+      "sample_rates": [
+        44100
+      ],
+      "channels": [
+        2
+      ],
+      "bit_rates": [
+        128000
+      ],
+      "n": 350,
+      "mean_duration_s": 13.574731,
+      "min_duration_s": 5.128,
+      "max_duration_s": 28.742688,
+      "total_duration_s": 4751.155956
+    },
+    "Abdul_Basit_Murattal_192kbps": {
+      "expected": 350,
+      "count": 350,
+      "missing_count": 0,
+      "missing_keys": [],
+      "failure_count": 0,
+      "failures": [],
+      "format_breakdown": {
+        "mp3/44100Hz/2ch/192000": 350
+      },
+      "unexpected_format_files": [],
+      "codecs": [
+        "mp3"
+      ],
+      "sample_rates": [
+        44100
+      ],
+      "channels": [
+        2
+      ],
+      "bit_rates": [
+        192000
+      ],
+      "n": 350,
+      "mean_duration_s": 9.474274,
+      "min_duration_s": 3.949833,
+      "max_duration_s": 23.646125,
+      "total_duration_s": 3315.995866
+    },
+    "Abu_Bakr_Ash-Shaatree_128kbps": {
+      "expected": 350,
+      "count": 350,
+      "missing_count": 0,
+      "missing_keys": [],
+      "failure_count": 0,
+      "failures": [],
+      "format_breakdown": {
+        "mp3/11025Hz/1ch/24000": 14,
+        "mp3/44100Hz/2ch/128000": 336
+      },
+      "unexpected_format_files": [
+        {
+          "key": "010014",
+          "codec": "mp3",
+          "sample_rate": 11025,
+          "channels": 1,
+          "bit_rate": 24000,
+          "duration_s": 14.305667
+        },
+        {
+          "key": "010058",
+          "codec": "mp3",
+          "sample_rate": 11025,
+          "channels": 1,
+          "bit_rate": 24000,
+          "duration_s": 13.94
+        },
+        {
+          "key": "010082",
+          "codec": "mp3",
+          "sample_rate": 11025,
+          "channels": 1,
+          "bit_rate": 24000,
+          "duration_s": 8.245
+        },
+        {
+          "key": "017021",
+          "codec": "mp3",
+          "sample_rate": 11025,
+          "channels": 1,
+          "bit_rate": 24000,
+          "duration_s": 12.216
+        },
+        {
+          "key": "017022",
+          "codec": "mp3",
+          "sample_rate": 11025,
+          "channels": 1,
+          "bit_rate": 24000,
+          "duration_s": 8.767333
+        },
+        {
+          "key": "017049",
+          "codec": "mp3",
+          "sample_rate": 11025,
+          "channels": 1,
+          "bit_rate": 24000,
+          "duration_s": 10.857333
+        },
+        {
+          "key": "017075",
+          "codec": "mp3",
+          "sample_rate": 11025,
+          "channels": 1,
+          "bit_rate": 24000,
+          "duration_s": 10.596
+        },
+        {
+          "key": "017105",
+          "codec": "mp3",
+          "sample_rate": 11025,
+          "channels": 1,
+          "bit_rate": 24000,
+          "duration_s": 11.118667
+        },
+        {
+          "key": "017106",
+          "codec": "mp3",
+          "sample_rate": 11025,
+          "channels": 1,
+          "bit_rate": 24000,
+          "duration_s": 13.887333
+        },
+        {
+          "key": "017109",
+          "codec": "mp3",
+          "sample_rate": 11025,
+          "channels": 1,
+          "bit_rate": 24000,
+          "duration_s": 10.491667
+        },
+        {
+          "key": "041002",
+          "codec": "mp3",
+          "sample_rate": 11025,
+          "channels": 1,
+          "bit_rate": 24000,
+          "duration_s": 5.580333
+        },
+        {
+          "key": "041003",
+          "codec": "mp3",
+          "sample_rate": 11025,
+          "channels": 1,
+          "bit_rate": 24000,
+          "duration_s": 8.924333
+        },
+        {
+          "key": "041013",
+          "codec": "mp3",
+          "sample_rate": 11025,
+          "channels": 1,
+          "bit_rate": 24000,
+          "duration_s": 9.394333
+        },
+        {
+          "key": "041035",
+          "codec": "mp3",
+          "sample_rate": 11025,
+          "channels": 1,
+          "bit_rate": 24000,
+          "duration_s": 15.768333
+        }
+      ],
+      "codecs": [
+        "mp3"
+      ],
+      "sample_rates": [
+        11025,
+        44100
+      ],
+      "channels": [
+        1,
+        2
+      ],
+      "bit_rates": [
+        24000,
+        128000
+      ],
+      "n": 350,
+      "mean_duration_s": 8.010916,
+      "min_duration_s": 3.03825,
+      "max_duration_s": 21.71575,
+      "total_duration_s": 2803.820471
+    },
+    "Minshawy_Murattal_128kbps": {
+      "expected": 350,
+      "count": 350,
+      "missing_count": 0,
+      "missing_keys": [],
+      "failure_count": 0,
+      "failures": [],
+      "format_breakdown": {
+        "mp3/44100Hz/2ch/128000": 350
+      },
+      "unexpected_format_files": [],
+      "codecs": [
+        "mp3"
+      ],
+      "sample_rates": [
+        44100
+      ],
+      "channels": [
+        2
+      ],
+      "bit_rates": [
+        128000
+      ],
+      "n": 350,
+      "mean_duration_s": 8.878886,
+      "min_duration_s": 3.639,
+      "max_duration_s": 20.305188,
+      "total_duration_s": 3107.610152
+    },
+    "Hudhaify_128kbps": {
+      "expected": 350,
+      "count": 350,
+      "missing_count": 0,
+      "missing_keys": [],
+      "failure_count": 0,
+      "failures": [],
+      "format_breakdown": {
+        "mp3/44100Hz/2ch/128000": 334,
+        "mp3/44100Hz/2ch/192000": 16
+      },
+      "unexpected_format_files": [
+        {
+          "key": "034048",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 8.233875
+        },
+        {
+          "key": "054011",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 12.36125
+        },
+        {
+          "key": "054013",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 7.13675
+        },
+        {
+          "key": "054020",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 10.767792
+        },
+        {
+          "key": "054029",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 5.673875
+        },
+        {
+          "key": "054031",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 14.242083
+        },
+        {
+          "key": "054033",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 6.457583
+        },
+        {
+          "key": "054037",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 12.25675
+        },
+        {
+          "key": "054038",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 8.469
+        },
+        {
+          "key": "054042",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 9.618417
+        },
+        {
+          "key": "054053",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 7.03225
+        },
+        {
+          "key": "054055",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 8.991458
+        },
+        {
+          "key": "055007",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 9.749
+        },
+        {
+          "key": "055012",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 6.118
+        },
+        {
+          "key": "055014",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 10.480458
+        },
+        {
+          "key": "055041",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 11.342458
+        }
+      ],
+      "codecs": [
+        "mp3"
+      ],
+      "sample_rates": [
+        44100
+      ],
+      "channels": [
+        2
+      ],
+      "bit_rates": [
+        128000,
+        192000
+      ],
+      "n": 350,
+      "mean_duration_s": 9.342128,
+      "min_duration_s": 4.10925,
+      "max_duration_s": 24.954938,
+      "total_duration_s": 3269.744897
+    },
+    "Muhammad_Ayyoub_128kbps": {
+      "expected": 350,
+      "count": 350,
+      "missing_count": 0,
+      "missing_keys": [],
+      "failure_count": 0,
+      "failures": [],
+      "format_breakdown": {
+        "mp3/44100Hz/2ch/128000": 349,
+        "mp3/44100Hz/2ch/192000": 1
+      },
+      "unexpected_format_files": [
+        {
+          "key": "007199",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 192000,
+          "duration_s": 9.435542
+        }
+      ],
+      "codecs": [
+        "mp3"
+      ],
+      "sample_rates": [
+        44100
+      ],
+      "channels": [
+        2
+      ],
+      "bit_rates": [
+        128000,
+        192000
+      ],
+      "n": 350,
+      "mean_duration_s": 10.132531,
+      "min_duration_s": 4.396563,
+      "max_duration_s": 39.923125,
+      "total_duration_s": 3546.385945
+    },
+    "Yaser_Salamah_128kbps": {
+      "expected": 350,
+      "count": 350,
+      "missing_count": 0,
+      "missing_keys": [],
+      "failure_count": 0,
+      "failures": [],
+      "format_breakdown": {
+        "mp3/44100Hz/2ch/128000": 345,
+        "mp3/48000Hz/2ch/128000": 5
+      },
+      "unexpected_format_files": [
+        {
+          "key": "001001",
+          "codec": "mp3",
+          "sample_rate": 48000,
+          "channels": 2,
+          "bit_rate": 128000,
+          "duration_s": 3.968
+        },
+        {
+          "key": "001007",
+          "codec": "mp3",
+          "sample_rate": 48000,
+          "channels": 2,
+          "bit_rate": 128000,
+          "duration_s": 13.76
+        },
+        {
+          "key": "002042",
+          "codec": "mp3",
+          "sample_rate": 48000,
+          "channels": 2,
+          "bit_rate": 128000,
+          "duration_s": 8.216
+        },
+        {
+          "key": "002066",
+          "codec": "mp3",
+          "sample_rate": 48000,
+          "channels": 2,
+          "bit_rate": 128000,
+          "duration_s": 9.848
+        },
+        {
+          "key": "002073",
+          "codec": "mp3",
+          "sample_rate": 48000,
+          "channels": 2,
+          "bit_rate": 128000,
+          "duration_s": 12.464
+        }
+      ],
+      "codecs": [
+        "mp3"
+      ],
+      "sample_rates": [
+        44100,
+        48000
+      ],
+      "channels": [
+        2
+      ],
+      "bit_rates": [
+        128000
+      ],
+      "n": 350,
+      "mean_duration_s": 8.716461,
+      "min_duration_s": 3.848,
+      "max_duration_s": 21.062688,
+      "total_duration_s": 3050.76127
+    },
+    "aziz_alili_128kbps": {
+      "expected": 350,
+      "count": 350,
+      "missing_count": 0,
+      "missing_keys": [],
+      "failure_count": 0,
+      "failures": [],
+      "format_breakdown": {
+        "mp3/44100Hz/2ch/128000": 350
+      },
+      "unexpected_format_files": [],
+      "codecs": [
+        "mp3"
+      ],
+      "sample_rates": [
+        44100
+      ],
+      "channels": [
+        2
+      ],
+      "bit_rates": [
+        128000
+      ],
+      "n": 350,
+      "mean_duration_s": 8.13136,
+      "min_duration_s": 3.456125,
+      "max_duration_s": 17.77125,
+      "total_duration_s": 2845.975959
+    },
+    "Abdullah_Basfar_192kbps": {
+      "expected": 350,
+      "count": 350,
+      "missing_count": 0,
+      "missing_keys": [],
+      "failure_count": 0,
+      "failures": [],
+      "format_breakdown": {
+        "mp3/44100Hz/2ch/128000": 1,
+        "mp3/44100Hz/2ch/192000": 349
+      },
+      "unexpected_format_files": [
+        {
+          "key": "029054",
+          "codec": "mp3",
+          "sample_rate": 44100,
+          "channels": 2,
+          "bit_rate": 128000,
+          "duration_s": 8.777125
+        }
+      ],
+      "codecs": [
+        "mp3"
+      ],
+      "sample_rates": [
+        44100
+      ],
+      "channels": [
+        2
+      ],
+      "bit_rates": [
+        128000,
+        192000
+      ],
+      "n": 350,
+      "mean_duration_s": 9.181054,
+      "min_duration_s": 4.289417,
+      "max_duration_s": 24.090208,
+      "total_duration_s": 3213.369035
+    }
+  },
+  "totals": {
+    "n": 3150,
+    "mean_duration_s": 9.493594,
+    "min_duration_s": 3.03825,
+    "max_duration_s": 39.923125,
+    "total_duration_s": 29904.819551
+  },
+  "distinct_format": {
+    "codecs": [
+      "mp3"
+    ],
+    "sample_rates": [
+      11025,
+      44100,
+      48000
+    ],
+    "channels": [
+      1,
+      2
+    ],
+    "bit_rates": [
+      24000,
+      128000,
+      192000
+    ]
+  },
+  "duration_band_s": [
+    1.0,
+    120.0
+  ],
+  "flagged_issues": [
+    "Abu_Bakr_Ash-Shaatree_128kbps: 14 files differ from the dir-implied format (mp3/44100Hz/2ch/128000bps); see unexpected_format_files",
+    "Hudhaify_128kbps: 16 files differ from the dir-implied format (mp3/44100Hz/2ch/128000bps); see unexpected_format_files",
+    "Muhammad_Ayyoub_128kbps: 1 files differ from the dir-implied format (mp3/44100Hz/2ch/128000bps); see unexpected_format_files",
+    "Yaser_Salamah_128kbps: 5 files differ from the dir-implied format (mp3/44100Hz/2ch/128000bps); see unexpected_format_files",
+    "Abdullah_Basfar_192kbps: 1 files differ from the dir-implied format (mp3/44100Hz/2ch/192000bps); see unexpected_format_files"
+  ]
+}
