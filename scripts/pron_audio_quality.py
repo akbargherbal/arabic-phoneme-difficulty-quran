@@ -89,6 +89,37 @@ def longest_run(mask: np.ndarray) -> int:
     return int((edges[1::2] - edges[::2]).max())
 
 
+def edge_silence(y: np.ndarray, sr: int) -> dict:
+    """Frame-wise RMS silence stats under the shared -50 dBFS rule.
+
+    Returns the boolean per-frame ``silent`` mask, the silent-frame share, and
+    the leading/trailing silence in seconds.  Shared with the trim-manifest
+    script so both measure silence identically.
+    """
+    rms = librosa.feature.rms(
+        y=y, frame_length=FRAME_LENGTH, hop_length=HOP_LENGTH, center=True
+    )[0]
+    db = librosa.amplitude_to_db(rms, ref=1.0)
+    silent = db < SILENCE_DBFS
+    if silent.all():
+        n_lead = n_trail = int(silent.size)
+    elif silent.any():
+        n_lead = int(np.argmax(~silent))
+        n_trail = int(np.argmax(~silent[::-1]))
+    else:
+        n_lead = n_trail = 0
+    hop_s = HOP_LENGTH / sr
+    return {
+        "silent": silent,
+        "silence_frame_pct": float(silent.mean() * 100.0),
+        "n_lead_frames": n_lead,
+        "n_trail_frames": n_trail,
+        "leading_silence_s": n_lead * hop_s,
+        "trailing_silence_s": n_trail * hop_s,
+        "hop_s": hop_s,
+    }
+
+
 def compute_metrics(y: np.ndarray, sr: int) -> dict:
     """Compute the content metrics + flags for one decoded mono waveform."""
     # --- clipping ---------------------------------------------------------
@@ -97,24 +128,10 @@ def compute_metrics(y: np.ndarray, sr: int) -> dict:
     clip_max_run = longest_run(clip_mask)
 
     # --- silence (frame-wise RMS in dBFS) ---------------------------------
-    rms = librosa.feature.rms(
-        y=y, frame_length=FRAME_LENGTH, hop_length=HOP_LENGTH, center=True
-    )[0]
-    db = librosa.amplitude_to_db(rms, ref=1.0)
-    silent = db < SILENCE_DBFS
-    silence_frame_pct = float(silent.mean() * 100.0)
-
-    hop_s = HOP_LENGTH / sr
-    n_lead = int(np.argmax(~silent)) if silent.any() and not silent.all() else 0
-    if silent.all():
-        n_lead = int(silent.size)
-    n_trail = 0
-    if silent.any() and not silent.all():
-        n_trail = int(np.argmax(~silent[::-1]))
-    elif silent.all():
-        n_trail = int(silent.size)
-    leading_silence_s = n_lead * hop_s
-    trailing_silence_s = n_trail * hop_s
+    sil = edge_silence(y, sr)
+    silence_frame_pct = sil["silence_frame_pct"]
+    leading_silence_s = sil["leading_silence_s"]
+    trailing_silence_s = sil["trailing_silence_s"]
 
     # --- bandwidth (median 0.95 spectral roll-off) ------------------------
     rolloff = librosa.feature.spectral_rolloff(
@@ -320,6 +337,13 @@ def main(argv: list[str] | None = None) -> int:
             "rolloff_hz": ROLLOFF_THRESHOLD_HZ,
             "frame_length": FRAME_LENGTH,
             "hop_length": HOP_LENGTH,
+        },
+        "decisions": {
+            "bandwidth_flag": (
+                "retired - not discriminative for this content, see "
+                "notes.bandwidth; sample_rate from ffprobe is the correct "
+                "signal for under-sampling, not content rolloff"
+            ),
         },
         "summary": {
             "files_checked": len(results),

@@ -29,6 +29,9 @@
     "frame_length": 2048,
     "hop_length": 512
   },
+  "decisions": {
+    "bandwidth_flag": "retired - not discriminative for this content, see notes.bandwidth; sample_rate from ffprobe is the correct signal for under-sampling, not content rolloff"
+  },
   "summary": {
     "files_checked": 3150,
     "files_flagged_any": 3150,
