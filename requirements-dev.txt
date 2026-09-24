@@ -1,0 +1,6 @@
+# Development / analysis dependencies (not needed by the core text pipeline).
+# The text scorer itself only needs requests (+ pandas for optional Parquet).
+# librosa is used by scripts/pron_audio_quality.py for content-level audio checks.
+librosa==0.11.0
+soundfile==0.14.0
+numpy==2.1.3
