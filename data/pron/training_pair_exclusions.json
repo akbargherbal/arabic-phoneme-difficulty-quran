@@ -1,12 +1,1 @@
-[
-  {
-    "reciter": "Hudhaify_128kbps",
-    "key": "023005",
-    "reason": "libsndfile decode failure, confirmed on fresh re-download"
-  },
-  {
-    "reciter": "aziz_alili_128kbps",
-    "key": "086008",
-    "reason": "libsndfile decode failure, confirmed on fresh re-download"
-  }
-]
+[]

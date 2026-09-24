@@ -2,7 +2,7 @@
 
 Read this first when resuming work on branch `pron-lora-prep`. It records what
 was done, where everything lives, and the gotchas that repeatedly bit us.
-Last updated: 2026-09-23 (session 5).
+Last updated: 2026-09-24 (session 11).
 
 Scope so far: **no training, no model repos, no merges.** Work has been (a) a
 weighted text scorer, (b) a **350-ayah** pronunciation shortlist + caption files
@@ -178,3 +178,12 @@ Anomalies (flagged, not averaged away; exact keys in
   dir-implied encoding — worth a resample/consistency decision before training.
 - Not yet done (only if a future task asks): pick the final donor reciter,
   align audio to the cleaned text, build the LoRA training dataset, any model work.
+
+## Exclusion reversal (Task 11, 2026-09-24)
+
+Task 7 excluded `Hudhaify_128kbps/023005` and `aziz_alili_128kbps/086008` because
+libsndfile could not decode them. Task 10 showed both decode fully under
+ffmpeg, torchaudio and librosa (torchaudio is the decoder documented for the
+training loader); the exclusion was reversed as a false positive. Final
+exclusion list is empty (`data/pron/training_pair_exclusions.json` = `[]`), i.e.
+3150 files / 6300 dual-script training pairs, 0 exclusions.
