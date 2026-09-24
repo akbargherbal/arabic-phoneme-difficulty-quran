@@ -1,0 +1,227 @@
+{
+  "generated_by": "scripts/pron_assemble_training_set.py",
+  "seed": 42,
+  "level": "ayah",
+  "n_ayat": 10,
+  "type_counts": {
+    "A": 6,
+    "B": 4
+  },
+  "required_letters": [
+    "ح",
+    "خ",
+    "ع",
+    "ض"
+  ],
+  "selection_algorithm": "Filter the 350 shortlisted ayat to unique simple-script text and not in the exclusion list, split by length_type, then draw 6 type-A + 4 type-B uniformly without replacement from the key-sorted pools using random.Random(42); the first draw whose union has >=1 ayah with count>0 for each of ح خ ع ض is the hold-out.",
+  "attempt": 1,
+  "candidate_pool": {
+    "type_A": 217,
+    "type_B": 123
+  },
+  "uniqueness_filter": {
+    "all_350_simple_texts_distinct": true,
+    "duplicate_groups": []
+  },
+  "exclusion_keys_avoided": [
+    "010014",
+    "010058",
+    "010082",
+    "017021",
+    "017022",
+    "017049",
+    "017075",
+    "017106",
+    "017109",
+    "041002"
+  ],
+  "chosen": [
+    {
+      "key": "006042",
+      "surah": 6,
+      "ayah": 42,
+      "length_type": "B",
+      "counts": {
+        "count_ح": 0,
+        "count_خ": 1,
+        "count_ع": 2,
+        "count_ض": 2
+      },
+      "covers": [
+        "خ",
+        "ع",
+        "ض"
+      ]
+    },
+    {
+      "key": "007052",
+      "surah": 7,
+      "ayah": 52,
+      "length_type": "B",
+      "counts": {
+        "count_ح": 1,
+        "count_خ": 0,
+        "count_ع": 2,
+        "count_ض": 0
+      },
+      "covers": [
+        "ح",
+        "ع"
+      ]
+    },
+    {
+      "key": "007078",
+      "surah": 7,
+      "ayah": 78,
+      "length_type": "A",
+      "counts": {
+        "count_ح": 1,
+        "count_خ": 1,
+        "count_ع": 0,
+        "count_ض": 0
+      },
+      "covers": [
+        "ح",
+        "خ"
+      ]
+    },
+    {
+      "key": "012039",
+      "surah": 12,
+      "ayah": 39,
+      "length_type": "B",
+      "counts": {
+        "count_ح": 2,
+        "count_خ": 1,
+        "count_ع": 0,
+        "count_ض": 0
+      },
+      "covers": [
+        "ح",
+        "خ"
+      ]
+    },
+    {
+      "key": "020005",
+      "surah": 20,
+      "ayah": 5,
+      "length_type": "A",
+      "counts": {
+        "count_ح": 1,
+        "count_خ": 0,
+        "count_ع": 2,
+        "count_ض": 0
+      },
+      "covers": [
+        "ح",
+        "ع"
+      ]
+    },
+    {
+      "key": "030017",
+      "surah": 30,
+      "ayah": 17,
+      "length_type": "A",
+      "counts": {
+        "count_ح": 4,
+        "count_خ": 0,
+        "count_ع": 0,
+        "count_ض": 0
+      },
+      "covers": [
+        "ح"
+      ]
+    },
+    {
+      "key": "037061",
+      "surah": 37,
+      "ayah": 61,
+      "length_type": "A",
+      "counts": {
+        "count_ح": 0,
+        "count_خ": 0,
+        "count_ع": 2,
+        "count_ض": 0
+      },
+      "covers": [
+        "ع"
+      ]
+    },
+    {
+      "key": "043067",
+      "surah": 43,
+      "ayah": 67,
+      "length_type": "B",
+      "counts": {
+        "count_ح": 0,
+        "count_خ": 1,
+        "count_ع": 3,
+        "count_ض": 2
+      },
+      "covers": [
+        "خ",
+        "ع",
+        "ض"
+      ]
+    },
+    {
+      "key": "069046",
+      "surah": 69,
+      "ayah": 46,
+      "length_type": "A",
+      "counts": {
+        "count_ح": 0,
+        "count_خ": 0,
+        "count_ع": 1,
+        "count_ض": 0
+      },
+      "covers": [
+        "ع"
+      ]
+    },
+    {
+      "key": "079025",
+      "surah": 79,
+      "ayah": 25,
+      "length_type": "A",
+      "counts": {
+        "count_ح": 0,
+        "count_خ": 2,
+        "count_ع": 0,
+        "count_ض": 0
+      },
+      "covers": [
+        "خ"
+      ]
+    }
+  ],
+  "coverage": {
+    "ح": [
+      "007052",
+      "007078",
+      "012039",
+      "020005",
+      "030017"
+    ],
+    "خ": [
+      "006042",
+      "007078",
+      "012039",
+      "043067",
+      "079025"
+    ],
+    "ع": [
+      "006042",
+      "007052",
+      "020005",
+      "037061",
+      "043067",
+      "069046"
+    ],
+    "ض": [
+      "006042",
+      "043067"
+    ]
+  },
+  "rationale": "Ayah-level hold-out so all 9 reciters x both scripts (180 pairs) of each chosen ayah are unseen. 6 type-A (short) + 4 type-B (long) match the shortlist's two length bands, the union covers all four target letters (ح خ ع ض), no chosen key is in the exclusion list, and unique simple text avoids train/val leakage from repeated refrains."
+}

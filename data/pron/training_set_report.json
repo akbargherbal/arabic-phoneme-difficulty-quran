@@ -1,0 +1,157 @@
+{
+  "counts": {
+    "train": 6100,
+    "val": 180,
+    "smoke": 16
+  },
+  "counts_per_reciter": {
+    "train": {
+      "Abdul_Basit_Murattal_192kbps": 680,
+      "Abdullah_Basfar_192kbps": 680,
+      "Abu_Bakr_Ash-Shaatree_128kbps": 660,
+      "Hudhaify_128kbps": 680,
+      "Husary_128kbps": 680,
+      "Minshawy_Murattal_128kbps": 680,
+      "Muhammad_Ayyoub_128kbps": 680,
+      "Yaser_Salamah_128kbps": 680,
+      "aziz_alili_128kbps": 680
+    },
+    "val": {
+      "Abdul_Basit_Murattal_192kbps": 20,
+      "Abdullah_Basfar_192kbps": 20,
+      "Abu_Bakr_Ash-Shaatree_128kbps": 20,
+      "Hudhaify_128kbps": 20,
+      "Husary_128kbps": 20,
+      "Minshawy_Murattal_128kbps": 20,
+      "Muhammad_Ayyoub_128kbps": 20,
+      "Yaser_Salamah_128kbps": 20,
+      "aziz_alili_128kbps": 20
+    },
+    "smoke": {
+      "Abdul_Basit_Murattal_192kbps": 8,
+      "Husary_128kbps": 8
+    }
+  },
+  "counts_per_script": {
+    "train": {
+      "simple": 3050,
+      "uthmani": 3050
+    },
+    "val": {
+      "simple": 90,
+      "uthmani": 90
+    },
+    "smoke": {
+      "simple": 8,
+      "uthmani": 8
+    }
+  },
+  "stems": {
+    "train": {
+      "mp3_count": 6100,
+      "txt_count": 6100,
+      "one_to_one": true,
+      "mp3_without_txt": [],
+      "txt_without_mp3": [],
+      "symlink_count": 0,
+      "symlinks": []
+    },
+    "val": {
+      "mp3_count": 180,
+      "txt_count": 180,
+      "one_to_one": true,
+      "mp3_without_txt": [],
+      "txt_without_mp3": [],
+      "symlink_count": 0,
+      "symlinks": []
+    },
+    "smoke": {
+      "mp3_count": 16,
+      "txt_count": 16,
+      "one_to_one": true,
+      "mp3_without_txt": [],
+      "txt_without_mp3": [],
+      "symlink_count": 0,
+      "symlinks": []
+    }
+  },
+  "md5": {
+    "checked": 6296,
+    "mismatch_count": 0,
+    "mismatches": []
+  },
+  "txt_byte_identical": {
+    "checked": 6296,
+    "mismatch_count": 0,
+    "mismatches": []
+  },
+  "forbidden_substrings": {
+    "hits": []
+  },
+  "excluded_pairs_present": [],
+  "holdout_keys_in_train": [],
+  "smoke_not_in_train": [],
+  "duration": {
+    "train": {
+      "pair_duration_s": 57635.685876,
+      "unique_audio_duration_s": 28817.842938,
+      "unique_audio_files": 3050
+    },
+    "val": {
+      "pair_duration_s": 1905.834508,
+      "unique_audio_duration_s": 952.917254,
+      "unique_audio_files": 90
+    },
+    "smoke": {
+      "pair_duration_s": 197.424806,
+      "unique_audio_duration_s": 98.712403,
+      "unique_audio_files": 8
+    }
+  },
+  "disk_bytes": {
+    "train": 1030821374,
+    "val": 34011585,
+    "smoke": 3895580,
+    "total": 1068728539
+  },
+  "all_checks_pass": true,
+  "donor_md5_matches_integrity_check": true,
+  "inputs": {
+    "shortlist": "data/pron/pron_shortlist_v2.csv",
+    "audio_root": "data/pron/donor_audio",
+    "captions": "data/pron/captions",
+    "exclusions": "data/pron/training_pair_exclusions.json",
+    "donor_manifest": "data/pron/donor_audio_manifest.json",
+    "duration_source": "data/pron/audio_level_silence_report.json",
+    "integrity": "data/pron/integrity_check.json"
+  },
+  "holdout_keys": [
+    "006042",
+    "007052",
+    "007078",
+    "012039",
+    "020005",
+    "030017",
+    "037061",
+    "043067",
+    "069046",
+    "079025"
+  ],
+  "smoke_keys": [
+    "001001",
+    "001007",
+    "002042",
+    "002066"
+  ],
+  "smoke_reciters": [
+    "Husary_128kbps",
+    "Abdul_Basit_Murattal_192kbps"
+  ],
+  "expected": {
+    "total_pairs_before_exclusions": 6300,
+    "excluded_pairs": 20,
+    "train_pairs": 6100,
+    "val_pairs": 180,
+    "smoke_pairs": 16
+  }
+}
