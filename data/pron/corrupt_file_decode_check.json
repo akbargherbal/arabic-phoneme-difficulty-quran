@@ -1,0 +1,127 @@
+{
+  "purpose": "Determine whether the 2 libsndfile-failing donor files are unusable for training or only unusable for libsndfile.",
+  "read_only": true,
+  "files": {
+    "Hudhaify_128kbps/023005": {
+      "path": "/content/arabic-phoneme-difficulty-quran/data/pron/donor_audio/Hudhaify_128kbps/023005.mp3",
+      "md5_before": "285a9efbf0d12e573f9afd4b4e36cd78",
+      "md5_after": "285a9efbf0d12e573f9afd4b4e36cd78",
+      "md5_unchanged": true,
+      "task7_md5": "285a9efbf0d12e573f9afd4b4e36cd78",
+      "md5_matches_task7": true,
+      "libsndfile_error": "LibsndfileError: Unspecified internal error. (raised by soundfile.read; soundfile.info still reports 44100 Hz, 2 ch, 6.278322 s)",
+      "libsndfile_info": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 276874,
+        "duration_s": 6.278322,
+        "format": "MP3",
+        "subtype": "MPEG_LAYER_III"
+      },
+      "ffmpeg": {
+        "null_v_error_returncode": 0,
+        "null_v_error_stderr": "",
+        "null_v_warning_returncode": 0,
+        "null_v_warning_stderr": "[mp3 @ 0x5af84b0a1dc0] Estimating duration from bitrate, this may be inaccurate",
+        "decoded_frames": 277632,
+        "decoded_duration_s": 6.29551,
+        "duration_diff_s": 0.008573,
+        "duration_diff_pct": 0.13636,
+        "decode_stderr": null
+      },
+      "torchaudio": {
+        "ok": true,
+        "error": null,
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 277632,
+        "duration_s": 6.29551,
+        "duration_diff_s": 0.008573,
+        "duration_diff_pct": 0.13636
+      },
+      "librosa": {
+        "ok": true,
+        "error": null,
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 277632,
+        "duration_s": 6.29551,
+        "fallback_backend": "audioread",
+        "warnings": "aifc was removed in Python 3.13. Please be aware that you are currently NOT using standard 'aifc', but instead a separately installed 'standard-aifc'.; sunau was removed in Python 3.13. Please be aware that you are currently NOT using standard 'sunau', but instead a separately installed 'standard-sunau'.; PySoundFile failed. Trying audioread instead.; librosa.core.audio.__audioread_load\n\tDeprecated as of librosa version 0.10.0.\n\tIt will be removed in librosa version 1.0.",
+        "duration_diff_s": 0.008573,
+        "duration_diff_pct": 0.13636
+      },
+      "ffprobe": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "duration_s": 6.286937
+      },
+      "manifest_ffprobe_duration_s": 6.286937
+    },
+    "aziz_alili_128kbps/086008": {
+      "path": "/content/arabic-phoneme-difficulty-quran/data/pron/donor_audio/aziz_alili_128kbps/086008.mp3",
+      "md5_before": "e7ef02c74964ab518d4ba99a91f3e93d",
+      "md5_after": "e7ef02c74964ab518d4ba99a91f3e93d",
+      "md5_unchanged": true,
+      "task7_md5": "e7ef02c74964ab518d4ba99a91f3e93d",
+      "md5_matches_task7": true,
+      "libsndfile_error": "LibsndfileError: Unspecified internal error. (raised by soundfile.read; soundfile.info still reports 44100 Hz, 2 ch, 4.599546 s)",
+      "libsndfile_info": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 202840,
+        "duration_s": 4.599546,
+        "format": "MP3",
+        "subtype": "MPEG_LAYER_III"
+      },
+      "ffmpeg": {
+        "null_v_error_returncode": 0,
+        "null_v_error_stderr": "",
+        "null_v_warning_returncode": 0,
+        "null_v_warning_stderr": "[mp3 @ 0x58961094ddc0] Estimating duration from bitrate, this may be inaccurate",
+        "decoded_frames": 200448,
+        "decoded_duration_s": 4.545306,
+        "duration_diff_s": 0.001743,
+        "duration_diff_pct": 0.03836,
+        "decode_stderr": null
+      },
+      "torchaudio": {
+        "ok": true,
+        "error": null,
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 200448,
+        "duration_s": 4.545306,
+        "duration_diff_s": 0.001743,
+        "duration_diff_pct": 0.03836
+      },
+      "librosa": {
+        "ok": true,
+        "error": null,
+        "sample_rate": 44100,
+        "channels": 2,
+        "frames": 200448,
+        "duration_s": 4.545306,
+        "fallback_backend": "audioread",
+        "warnings": "PySoundFile failed. Trying audioread instead.; librosa.core.audio.__audioread_load\n\tDeprecated as of librosa version 0.10.0.\n\tIt will be removed in librosa version 1.0.",
+        "duration_diff_s": 0.001743,
+        "duration_diff_pct": 0.03836
+      },
+      "ffprobe": {
+        "sample_rate": 44100,
+        "channels": 2,
+        "duration_s": 4.543563
+      },
+      "manifest_ffprobe_duration_s": 4.543563
+    }
+  },
+  "training_loader": {
+    "decoder": "torchaudio.load (torchaudio decodes via torchcodec/FFmpeg)",
+    "file": "NOT PRESENT in either repo",
+    "line": null,
+    "notes": "The ai-toolkit source that owns the production dataloader is not vendored in arabic-phoneme-difficulty-quran or maqamrock-yue2-lora-finetuning and is not on disk anywhere in the environment, so no line number for the audio-loading call can be given. maqamrock's verification.md:22 names the source of truth as ostris/ai-toolkit's toolkit/data_loader.py (AiToolkitDataset), toolkit/dataloader_mixins.py and extensions_built_in/audio_models/yue2/yue2_model.py; verification.md:27 states it is 'Loaded with torchaudio' and auto-resampled to 48k. The only audio-load call actually present in either repo is a bootstrap decode smoke test at bootstrap/setup.sh:364 (torchaudio.load(...)), asserted by bootstrap/setup.sh:362-367. Decoder identity is therefore taken from the repo's own documented references and bootstrap assertion (torchaudio), not guessed."
+  },
+  "notes": {
+    "manifest_duration": "data/pron/donor_audio_manifest.json stores only per-reciter aggregates, not per-file ffprobe durations; the per-file ffprobe value here was obtained by running ffprobe directly on the same file (read-only)."
+  }
+}
