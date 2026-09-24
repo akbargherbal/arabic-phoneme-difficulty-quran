@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+    "key": "010014",
+    "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db, consonant_proxy_db (Task 12)"
+  },
+  {
+    "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+    "key": "010058",
+    "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db (Task 12)"
+  },
+  {
+    "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+    "key": "010082",
+    "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db (Task 12)"
+  },
+  {
+    "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+    "key": "017021",
+    "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db (Task 12)"
+  },
+  {
+    "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+    "key": "017022",
+    "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db (Task 12)"
+  },
+  {
+    "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+    "key": "017049",
+    "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db, snr_proxy_db, consonant_proxy_db (Task 12)"
+  },
+  {
+    "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+    "key": "017075",
+    "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db, consonant_proxy_db (Task 12)"
+  },
+  {
+    "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+    "key": "017106",
+    "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db, consonant_proxy_db (Task 12)"
+  },
+  {
+    "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+    "key": "017109",
+    "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db, consonant_proxy_db (Task 12)"
+  },
+  {
+    "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+    "key": "041002",
+    "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db, snr_proxy_db (Task 12)"
+  }
+]

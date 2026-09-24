@@ -1,0 +1,776 @@
+{
+  "task": "Task 12 - verify the 14 low-format Abu_Bakr donor files",
+  "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+  "read_only": true,
+  "decoder": "torchaudio.load (the training loader's decoder), mixed to mono, native sample rate",
+  "question": "Are the 14 11025Hz/mono/24kbps files actually low quality enough to damage the crisp-consonant signal (ح خ ع ض)?",
+  "low_format_group": {
+    "definition": "sample_rate == 11025 (selected by ffprobe over all 350 files in the folder; not by manifest key)",
+    "count": 14,
+    "keys": [
+      "010014",
+      "010058",
+      "010082",
+      "017021",
+      "017022",
+      "017049",
+      "017075",
+      "017105",
+      "017106",
+      "017109",
+      "041002",
+      "041003",
+      "041013",
+      "041035"
+    ],
+    "formats": {
+      "11025Hz/1ch/24000bps": 14
+    }
+  },
+  "reference_group": {
+    "definition": "all other files in the folder (sample_rate != 11025)",
+    "count": 336,
+    "formats": {
+      "44100Hz/2ch/128000bps": 336
+    }
+  },
+  "metric_definitions": {
+    "bandwidth_cutoff_hz": "From the long-term average power spectral density (scipy.signal.welch, Hann, nperseg=2048, 50% overlap, density scaling), the highest frequency whose PSD is more than 40 dB above the file's own noise floor.",
+    "noise_floor": "Median PSD (power) of the highest-frequency 5% of bins up to and including Nyquist.",
+    "hf_ratio_4k_5p5k_db": "10*log10(sum(PSD in 4000-5500 Hz) / sum(PSD over 0-Nyquist)). The band is capped at 5.5 kHz for BOTH groups so the comparison is like for like (11025 Hz Nyquist is 5.5125 kHz).",
+    "hf_ratio_4k_nyquist_db": "Same but 4000 Hz to each file's own Nyquist; informational, reported for the reference set only (for the 11025 Hz group it is ~the capped value).",
+    "snr_proxy_db": "20*log10(P90/P10) of non-overlapping 25 ms frame RMS; a rough noise-floor indicator (higher is better).",
+    "consonant_proxy_db": "10*log10(mean PSD in 2000-5000 Hz / mean PSD in 300-2000 Hz); a fricative/pharyngeal consonant-energy proxy (higher is better)."
+  },
+  "rule": "Fixed in advance, per file: DISQUALIFY if the file is below the reference 5th percentile on metric 2b (hf_ratio_4k_5p5k_db) or 2d (consonant_proxy_db) AND below the reference 5th percentile on at least one of 2a (bandwidth_cutoff_hz) or 2c (snr_proxy_db); KEEP if inside the reference 5th-95th range on both 2b and 2d; INCONCLUSIVE otherwise. 'Below'/'inside' use the reference percentiles computed from the 336 44100 Hz files.",
+  "reference_distribution": {
+    "bandwidth_cutoff_hz": {
+      "min": 14707.18,
+      "p05": 15267.04,
+      "p25": 15525.44,
+      "median": 15654.64,
+      "p75": 15740.77,
+      "p95": 15783.84,
+      "max": 15805.37,
+      "mean": 15599.3319,
+      "n": 336
+    },
+    "hf_ratio_4k_5p5k_db": {
+      "min": -27.4783,
+      "p05": -23.7595,
+      "p25": -20.7312,
+      "median": -18.3984,
+      "p75": -16.3928,
+      "p95": -13.2451,
+      "max": -9.0474,
+      "mean": -18.5675,
+      "n": 336
+    },
+    "hf_ratio_4k_nyquist_db": {
+      "min": -25.9826,
+      "p05": -22.1084,
+      "p25": -19.3607,
+      "median": -17.3193,
+      "p75": -15.5237,
+      "p95": -12.3512,
+      "max": -8.016,
+      "mean": -17.3574,
+      "n": 336
+    },
+    "snr_proxy_db": {
+      "min": 6.8906,
+      "p05": 10.6768,
+      "p25": 12.9797,
+      "median": 14.7332,
+      "p75": 16.4769,
+      "p95": 27.7884,
+      "max": 200.0,
+      "mean": 18.4857,
+      "n": 336
+    },
+    "consonant_proxy_db": {
+      "min": -18.9288,
+      "p05": -15.7459,
+      "p25": -13.3123,
+      "median": -11.848,
+      "p75": -10.1719,
+      "p95": -7.7701,
+      "max": -5.5579,
+      "mean": -11.7748,
+      "n": 336
+    }
+  },
+  "files": [
+    {
+      "key": "010014",
+      "format": {
+        "sample_rate": 11025,
+        "channels": 1,
+        "bit_rate": 24000
+      },
+      "metrics": {
+        "bandwidth_cutoff_hz": 2901.6,
+        "hf_ratio_4k_5p5k_db": -29.2451,
+        "hf_ratio_4k_nyquist_db": -29.2451,
+        "snr_proxy_db": 13.1776,
+        "consonant_proxy_db": -16.9757
+      },
+      "percentile_rank": {
+        "bandwidth_cutoff_hz": 0.0,
+        "hf_ratio_4k_5p5k_db": 0.0,
+        "snr_proxy_db": 26.4881,
+        "consonant_proxy_db": 1.4881
+      },
+      "below_p05": {
+        "bandwidth_cutoff_hz": true,
+        "hf_ratio_4k_5p5k_db": true,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": true
+      },
+      "inside_5_95": {
+        "bandwidth_cutoff_hz": false,
+        "hf_ratio_4k_5p5k_db": false,
+        "snr_proxy_db": true,
+        "consonant_proxy_db": false
+      },
+      "verdict": "DISQUALIFY",
+      "driving_metrics": [
+        "bandwidth_cutoff_hz",
+        "hf_ratio_4k_5p5k_db",
+        "consonant_proxy_db"
+      ]
+    },
+    {
+      "key": "010058",
+      "format": {
+        "sample_rate": 11025,
+        "channels": 1,
+        "bit_rate": 24000
+      },
+      "metrics": {
+        "bandwidth_cutoff_hz": 877.48,
+        "hf_ratio_4k_5p5k_db": -27.6052,
+        "hf_ratio_4k_nyquist_db": -27.6052,
+        "snr_proxy_db": 13.088,
+        "consonant_proxy_db": -15.6085
+      },
+      "percentile_rank": {
+        "bandwidth_cutoff_hz": 0.0,
+        "hf_ratio_4k_5p5k_db": 0.0,
+        "snr_proxy_db": 26.4881,
+        "consonant_proxy_db": 5.6548
+      },
+      "below_p05": {
+        "bandwidth_cutoff_hz": true,
+        "hf_ratio_4k_5p5k_db": true,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": false
+      },
+      "inside_5_95": {
+        "bandwidth_cutoff_hz": false,
+        "hf_ratio_4k_5p5k_db": false,
+        "snr_proxy_db": true,
+        "consonant_proxy_db": true
+      },
+      "verdict": "DISQUALIFY",
+      "driving_metrics": [
+        "bandwidth_cutoff_hz",
+        "hf_ratio_4k_5p5k_db"
+      ]
+    },
+    {
+      "key": "010082",
+      "format": {
+        "sample_rate": 11025,
+        "channels": 1,
+        "bit_rate": 24000
+      },
+      "metrics": {
+        "bandwidth_cutoff_hz": 2917.75,
+        "hf_ratio_4k_5p5k_db": -23.8418,
+        "hf_ratio_4k_nyquist_db": -23.8418,
+        "snr_proxy_db": 13.8506,
+        "consonant_proxy_db": -11.867
+      },
+      "percentile_rank": {
+        "bandwidth_cutoff_hz": 0.0,
+        "hf_ratio_4k_5p5k_db": 4.7619,
+        "snr_proxy_db": 35.119,
+        "consonant_proxy_db": 50.0
+      },
+      "below_p05": {
+        "bandwidth_cutoff_hz": true,
+        "hf_ratio_4k_5p5k_db": true,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": false
+      },
+      "inside_5_95": {
+        "bandwidth_cutoff_hz": false,
+        "hf_ratio_4k_5p5k_db": false,
+        "snr_proxy_db": true,
+        "consonant_proxy_db": true
+      },
+      "verdict": "DISQUALIFY",
+      "driving_metrics": [
+        "bandwidth_cutoff_hz",
+        "hf_ratio_4k_5p5k_db"
+      ]
+    },
+    {
+      "key": "017021",
+      "format": {
+        "sample_rate": 11025,
+        "channels": 1,
+        "bit_rate": 24000
+      },
+      "metrics": {
+        "bandwidth_cutoff_hz": 2955.43,
+        "hf_ratio_4k_5p5k_db": -26.0725,
+        "hf_ratio_4k_nyquist_db": -26.0725,
+        "snr_proxy_db": 12.7668,
+        "consonant_proxy_db": -15.3716
+      },
+      "percentile_rank": {
+        "bandwidth_cutoff_hz": 0.0,
+        "hf_ratio_4k_5p5k_db": 0.5952,
+        "snr_proxy_db": 22.3214,
+        "consonant_proxy_db": 6.5476
+      },
+      "below_p05": {
+        "bandwidth_cutoff_hz": true,
+        "hf_ratio_4k_5p5k_db": true,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": false
+      },
+      "inside_5_95": {
+        "bandwidth_cutoff_hz": false,
+        "hf_ratio_4k_5p5k_db": false,
+        "snr_proxy_db": true,
+        "consonant_proxy_db": true
+      },
+      "verdict": "DISQUALIFY",
+      "driving_metrics": [
+        "bandwidth_cutoff_hz",
+        "hf_ratio_4k_5p5k_db"
+      ]
+    },
+    {
+      "key": "017022",
+      "format": {
+        "sample_rate": 11025,
+        "channels": 1,
+        "bit_rate": 24000
+      },
+      "metrics": {
+        "bandwidth_cutoff_hz": 1792.64,
+        "hf_ratio_4k_5p5k_db": -24.5664,
+        "hf_ratio_4k_nyquist_db": -24.5664,
+        "snr_proxy_db": 12.089,
+        "consonant_proxy_db": -15.7061
+      },
+      "percentile_rank": {
+        "bandwidth_cutoff_hz": 0.0,
+        "hf_ratio_4k_5p5k_db": 2.9762,
+        "snr_proxy_db": 13.6905,
+        "consonant_proxy_db": 5.3571
+      },
+      "below_p05": {
+        "bandwidth_cutoff_hz": true,
+        "hf_ratio_4k_5p5k_db": true,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": false
+      },
+      "inside_5_95": {
+        "bandwidth_cutoff_hz": false,
+        "hf_ratio_4k_5p5k_db": false,
+        "snr_proxy_db": true,
+        "consonant_proxy_db": true
+      },
+      "verdict": "DISQUALIFY",
+      "driving_metrics": [
+        "bandwidth_cutoff_hz",
+        "hf_ratio_4k_5p5k_db"
+      ]
+    },
+    {
+      "key": "017049",
+      "format": {
+        "sample_rate": 11025,
+        "channels": 1,
+        "bit_rate": 24000
+      },
+      "metrics": {
+        "bandwidth_cutoff_hz": 4688.85,
+        "hf_ratio_4k_5p5k_db": -27.7986,
+        "hf_ratio_4k_nyquist_db": -27.7986,
+        "snr_proxy_db": 10.58,
+        "consonant_proxy_db": -15.9734
+      },
+      "percentile_rank": {
+        "bandwidth_cutoff_hz": 0.0,
+        "hf_ratio_4k_5p5k_db": 0.0,
+        "snr_proxy_db": 4.7619,
+        "consonant_proxy_db": 4.1667
+      },
+      "below_p05": {
+        "bandwidth_cutoff_hz": true,
+        "hf_ratio_4k_5p5k_db": true,
+        "snr_proxy_db": true,
+        "consonant_proxy_db": true
+      },
+      "inside_5_95": {
+        "bandwidth_cutoff_hz": false,
+        "hf_ratio_4k_5p5k_db": false,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": false
+      },
+      "verdict": "DISQUALIFY",
+      "driving_metrics": [
+        "bandwidth_cutoff_hz",
+        "hf_ratio_4k_5p5k_db",
+        "snr_proxy_db",
+        "consonant_proxy_db"
+      ]
+    },
+    {
+      "key": "017075",
+      "format": {
+        "sample_rate": 11025,
+        "channels": 1,
+        "bit_rate": 24000
+      },
+      "metrics": {
+        "bandwidth_cutoff_hz": 672.91,
+        "hf_ratio_4k_5p5k_db": -27.6625,
+        "hf_ratio_4k_nyquist_db": -27.6616,
+        "snr_proxy_db": 12.6457,
+        "consonant_proxy_db": -17.6065
+      },
+      "percentile_rank": {
+        "bandwidth_cutoff_hz": 0.0,
+        "hf_ratio_4k_5p5k_db": 0.0,
+        "snr_proxy_db": 21.131,
+        "consonant_proxy_db": 0.8929
+      },
+      "below_p05": {
+        "bandwidth_cutoff_hz": true,
+        "hf_ratio_4k_5p5k_db": true,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": true
+      },
+      "inside_5_95": {
+        "bandwidth_cutoff_hz": false,
+        "hf_ratio_4k_5p5k_db": false,
+        "snr_proxy_db": true,
+        "consonant_proxy_db": false
+      },
+      "verdict": "DISQUALIFY",
+      "driving_metrics": [
+        "bandwidth_cutoff_hz",
+        "hf_ratio_4k_5p5k_db",
+        "consonant_proxy_db"
+      ]
+    },
+    {
+      "key": "017105",
+      "format": {
+        "sample_rate": 11025,
+        "channels": 1,
+        "bit_rate": 24000
+      },
+      "metrics": {
+        "bandwidth_cutoff_hz": 753.66,
+        "hf_ratio_4k_5p5k_db": -19.1799,
+        "hf_ratio_4k_nyquist_db": -19.1795,
+        "snr_proxy_db": 12.0585,
+        "consonant_proxy_db": -11.9191
+      },
+      "percentile_rank": {
+        "bandwidth_cutoff_hz": 0.0,
+        "hf_ratio_4k_5p5k_db": 41.0714,
+        "snr_proxy_db": 13.3929,
+        "consonant_proxy_db": 47.9167
+      },
+      "below_p05": {
+        "bandwidth_cutoff_hz": true,
+        "hf_ratio_4k_5p5k_db": false,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": false
+      },
+      "inside_5_95": {
+        "bandwidth_cutoff_hz": false,
+        "hf_ratio_4k_5p5k_db": true,
+        "snr_proxy_db": true,
+        "consonant_proxy_db": true
+      },
+      "verdict": "KEEP",
+      "driving_metrics": []
+    },
+    {
+      "key": "017106",
+      "format": {
+        "sample_rate": 11025,
+        "channels": 1,
+        "bit_rate": 24000
+      },
+      "metrics": {
+        "bandwidth_cutoff_hz": 764.43,
+        "hf_ratio_4k_5p5k_db": -25.8255,
+        "hf_ratio_4k_nyquist_db": -25.8253,
+        "snr_proxy_db": 13.2863,
+        "consonant_proxy_db": -18.4977
+      },
+      "percentile_rank": {
+        "bandwidth_cutoff_hz": 0.0,
+        "hf_ratio_4k_5p5k_db": 0.8929,
+        "snr_proxy_db": 27.6786,
+        "consonant_proxy_db": 0.5952
+      },
+      "below_p05": {
+        "bandwidth_cutoff_hz": true,
+        "hf_ratio_4k_5p5k_db": true,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": true
+      },
+      "inside_5_95": {
+        "bandwidth_cutoff_hz": false,
+        "hf_ratio_4k_5p5k_db": false,
+        "snr_proxy_db": true,
+        "consonant_proxy_db": false
+      },
+      "verdict": "DISQUALIFY",
+      "driving_metrics": [
+        "bandwidth_cutoff_hz",
+        "hf_ratio_4k_5p5k_db",
+        "consonant_proxy_db"
+      ]
+    },
+    {
+      "key": "017109",
+      "format": {
+        "sample_rate": 11025,
+        "channels": 1,
+        "bit_rate": 24000
+      },
+      "metrics": {
+        "bandwidth_cutoff_hz": 1012.06,
+        "hf_ratio_4k_5p5k_db": -28.3011,
+        "hf_ratio_4k_nyquist_db": -28.3011,
+        "snr_proxy_db": 30.6469,
+        "consonant_proxy_db": -18.6136
+      },
+      "percentile_rank": {
+        "bandwidth_cutoff_hz": 0.0,
+        "hf_ratio_4k_5p5k_db": 0.0,
+        "snr_proxy_db": 95.8333,
+        "consonant_proxy_db": 0.2976
+      },
+      "below_p05": {
+        "bandwidth_cutoff_hz": true,
+        "hf_ratio_4k_5p5k_db": true,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": true
+      },
+      "inside_5_95": {
+        "bandwidth_cutoff_hz": false,
+        "hf_ratio_4k_5p5k_db": false,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": false
+      },
+      "verdict": "DISQUALIFY",
+      "driving_metrics": [
+        "bandwidth_cutoff_hz",
+        "hf_ratio_4k_5p5k_db",
+        "consonant_proxy_db"
+      ]
+    },
+    {
+      "key": "041002",
+      "format": {
+        "sample_rate": 11025,
+        "channels": 1,
+        "bit_rate": 24000
+      },
+      "metrics": {
+        "bandwidth_cutoff_hz": 349.91,
+        "hf_ratio_4k_5p5k_db": -24.708,
+        "hf_ratio_4k_nyquist_db": -24.7066,
+        "snr_proxy_db": 10.3583,
+        "consonant_proxy_db": -11.6828
+      },
+      "percentile_rank": {
+        "bandwidth_cutoff_hz": 0.0,
+        "hf_ratio_4k_5p5k_db": 2.381,
+        "snr_proxy_db": 4.7619,
+        "consonant_proxy_db": 53.2738
+      },
+      "below_p05": {
+        "bandwidth_cutoff_hz": true,
+        "hf_ratio_4k_5p5k_db": true,
+        "snr_proxy_db": true,
+        "consonant_proxy_db": false
+      },
+      "inside_5_95": {
+        "bandwidth_cutoff_hz": false,
+        "hf_ratio_4k_5p5k_db": false,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": true
+      },
+      "verdict": "DISQUALIFY",
+      "driving_metrics": [
+        "bandwidth_cutoff_hz",
+        "hf_ratio_4k_5p5k_db",
+        "snr_proxy_db"
+      ]
+    },
+    {
+      "key": "041003",
+      "format": {
+        "sample_rate": 11025,
+        "channels": 1,
+        "bit_rate": 24000
+      },
+      "metrics": {
+        "bandwidth_cutoff_hz": 269.17,
+        "hf_ratio_4k_5p5k_db": -21.0686,
+        "hf_ratio_4k_nyquist_db": -21.0683,
+        "snr_proxy_db": 12.8329,
+        "consonant_proxy_db": -12.2567
+      },
+      "percentile_rank": {
+        "bandwidth_cutoff_hz": 0.0,
+        "hf_ratio_4k_5p5k_db": 22.9167,
+        "snr_proxy_db": 23.2143,
+        "consonant_proxy_db": 41.369
+      },
+      "below_p05": {
+        "bandwidth_cutoff_hz": true,
+        "hf_ratio_4k_5p5k_db": false,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": false
+      },
+      "inside_5_95": {
+        "bandwidth_cutoff_hz": false,
+        "hf_ratio_4k_5p5k_db": true,
+        "snr_proxy_db": true,
+        "consonant_proxy_db": true
+      },
+      "verdict": "KEEP",
+      "driving_metrics": []
+    },
+    {
+      "key": "041013",
+      "format": {
+        "sample_rate": 11025,
+        "channels": 1,
+        "bit_rate": 24000
+      },
+      "metrics": {
+        "bandwidth_cutoff_hz": 715.98,
+        "hf_ratio_4k_5p5k_db": -21.3498,
+        "hf_ratio_4k_nyquist_db": -21.3497,
+        "snr_proxy_db": 11.9146,
+        "consonant_proxy_db": -13.4986
+      },
+      "percentile_rank": {
+        "bandwidth_cutoff_hz": 0.0,
+        "hf_ratio_4k_5p5k_db": 20.2381,
+        "snr_proxy_db": 11.9048,
+        "consonant_proxy_db": 24.4048
+      },
+      "below_p05": {
+        "bandwidth_cutoff_hz": true,
+        "hf_ratio_4k_5p5k_db": false,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": false
+      },
+      "inside_5_95": {
+        "bandwidth_cutoff_hz": false,
+        "hf_ratio_4k_5p5k_db": true,
+        "snr_proxy_db": true,
+        "consonant_proxy_db": true
+      },
+      "verdict": "KEEP",
+      "driving_metrics": []
+    },
+    {
+      "key": "041035",
+      "format": {
+        "sample_rate": 11025,
+        "channels": 1,
+        "bit_rate": 24000
+      },
+      "metrics": {
+        "bandwidth_cutoff_hz": 732.13,
+        "hf_ratio_4k_5p5k_db": -14.4922,
+        "hf_ratio_4k_nyquist_db": -14.4921,
+        "snr_proxy_db": 14.9815,
+        "consonant_proxy_db": -10.4375
+      },
+      "percentile_rank": {
+        "bandwidth_cutoff_hz": 0.0,
+        "hf_ratio_4k_5p5k_db": 91.0714,
+        "snr_proxy_db": 54.1667,
+        "consonant_proxy_db": 71.7262
+      },
+      "below_p05": {
+        "bandwidth_cutoff_hz": true,
+        "hf_ratio_4k_5p5k_db": false,
+        "snr_proxy_db": false,
+        "consonant_proxy_db": false
+      },
+      "inside_5_95": {
+        "bandwidth_cutoff_hz": false,
+        "hf_ratio_4k_5p5k_db": true,
+        "snr_proxy_db": true,
+        "consonant_proxy_db": true
+      },
+      "verdict": "KEEP",
+      "driving_metrics": []
+    }
+  ],
+  "verdict_summary": {
+    "DISQUALIFY": 10,
+    "KEEP": 4,
+    "INCONCLUSIVE": 0
+  },
+  "proposed_exclusions": [
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "010014",
+      "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db, consonant_proxy_db (Task 12)"
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "010058",
+      "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db (Task 12)"
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "010082",
+      "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db (Task 12)"
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "017021",
+      "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db (Task 12)"
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "017022",
+      "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db (Task 12)"
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "017049",
+      "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db, snr_proxy_db, consonant_proxy_db (Task 12)"
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "017075",
+      "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db, consonant_proxy_db (Task 12)"
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "017106",
+      "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db, consonant_proxy_db (Task 12)"
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "017109",
+      "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db, consonant_proxy_db (Task 12)"
+    },
+    {
+      "reciter": "Abu_Bakr_Ash-Shaatree_128kbps",
+      "key": "041002",
+      "reason": "verified low quality: 11025Hz/mono/24kbps and below reference 5th percentile on bandwidth_cutoff_hz, hf_ratio_4k_5p5k_db, snr_proxy_db (Task 12)"
+    }
+  ],
+  "md5_check": {
+    "010014": {
+      "md5": "962e52a97fb0c366291dcfd34d40ad2c",
+      "recorded_md5": "962e52a97fb0c366291dcfd34d40ad2c",
+      "matches_recorded": true,
+      "recorded_source": "data/pron/integrity_check.json"
+    },
+    "010058": {
+      "md5": "f96b25ac916d43a6bd250e974a9902aa",
+      "recorded_md5": "f96b25ac916d43a6bd250e974a9902aa",
+      "matches_recorded": true,
+      "recorded_source": "data/pron/integrity_check.json"
+    },
+    "010082": {
+      "md5": "79418acdc27d55e4164f28dfca47b38e",
+      "recorded_md5": "79418acdc27d55e4164f28dfca47b38e",
+      "matches_recorded": true,
+      "recorded_source": "data/pron/integrity_check.json"
+    },
+    "017021": {
+      "md5": "b2a5f8a132d1320b2f9ac4acf540e25e",
+      "recorded_md5": "b2a5f8a132d1320b2f9ac4acf540e25e",
+      "matches_recorded": true,
+      "recorded_source": "data/pron/integrity_check.json"
+    },
+    "017022": {
+      "md5": "7715601e8e6a52abda52211caad8c018",
+      "recorded_md5": "7715601e8e6a52abda52211caad8c018",
+      "matches_recorded": true,
+      "recorded_source": "data/pron/integrity_check.json"
+    },
+    "017049": {
+      "md5": "beb491db12cc2743305c8b04f70d5d54",
+      "recorded_md5": "beb491db12cc2743305c8b04f70d5d54",
+      "matches_recorded": true,
+      "recorded_source": "data/pron/integrity_check.json"
+    },
+    "017075": {
+      "md5": "06b422a1c3e8864e671b908df793dbc1",
+      "recorded_md5": "06b422a1c3e8864e671b908df793dbc1",
+      "matches_recorded": true,
+      "recorded_source": "data/pron/integrity_check.json"
+    },
+    "017105": {
+      "md5": "861bb891b252ef4a2218ef46089775ff",
+      "recorded_md5": "861bb891b252ef4a2218ef46089775ff",
+      "matches_recorded": true,
+      "recorded_source": "data/pron/integrity_check.json"
+    },
+    "017106": {
+      "md5": "799fd8208b525f2da32696784d37894e",
+      "recorded_md5": "799fd8208b525f2da32696784d37894e",
+      "matches_recorded": true,
+      "recorded_source": "data/pron/integrity_check.json"
+    },
+    "017109": {
+      "md5": "1151dcfc91144ed59322effb42734e86",
+      "recorded_md5": "1151dcfc91144ed59322effb42734e86",
+      "matches_recorded": true,
+      "recorded_source": "data/pron/integrity_check.json"
+    },
+    "041002": {
+      "md5": "5cc1ea62e7088567258c8a2118a286cd",
+      "recorded_md5": "5cc1ea62e7088567258c8a2118a286cd",
+      "matches_recorded": true,
+      "recorded_source": "data/pron/integrity_check.json"
+    },
+    "041003": {
+      "md5": "1b6c8683d5c306e1da0ed228a917c912",
+      "recorded_md5": "1b6c8683d5c306e1da0ed228a917c912",
+      "matches_recorded": true,
+      "recorded_source": "data/pron/integrity_check.json"
+    },
+    "041013": {
+      "md5": "08043808378fdb8147202096ea56a37f",
+      "recorded_md5": "08043808378fdb8147202096ea56a37f",
+      "matches_recorded": true,
+      "recorded_source": "data/pron/integrity_check.json"
+    },
+    "041035": {
+      "md5": "18cd70e81d33e3eea3ee8a9edb6b5de7",
+      "recorded_md5": "18cd70e81d33e3eea3ee8a9edb6b5de7",
+      "matches_recorded": true,
+      "recorded_source": "data/pron/integrity_check.json"
+    }
+  },
+  "concerns": "No thresholds were tuned after seeing results. Note the fixed rule compares each metric against the reference 5th percentile; the bandwidth_cutoff_hz metric is bounded by Nyquist (5.5 kHz for the low group), so it can only register as 'below' the reference if clean files' cutoffs are also low. This is reported as-is, per the task; any threshold change is left to the user."
+}
